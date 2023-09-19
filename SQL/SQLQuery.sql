@@ -35,3 +35,29 @@ MobileNumber char(10) constraint unk_MobileNumber Unique not null,
 EmailId varchar(150) constraint unk_EmailId Unique not null,
 CreatedDate DateTime not null default GetDate(),
 )
+
+Go
+Create Procedure usp_AddProduct 
+	@ProductName varchar(50),
+	@Description varchar(100),
+	@UnitPrice Money,
+	@UnitsInStock int,
+	@Discontinued Bit,
+	@CategoryId int
+As
+	Insert into Products(ProductName, [Description], UnitPrice, UnitsInStock, Discontinued, CategoryId)
+	values (@ProductName, @Description, @UnitPrice, @UnitsInStock, @Discontinued, @CategoryId)
+Go
+
+Go
+Create Procedure usp_AddNewUser
+	@FirstName varchar(50),
+	@LastName varchar(50),
+	@Gender char(6),
+	@DateOfBirth Datetime,
+	@MobileNumber char(10),
+	@EmailId varchar(150)
+As
+	Insert into Users(FirstName, LastName, Gender, DateOfBirth, MobileNumber, EmailId)
+	values (@FirstName, @LastName, @Gender, @DateOfBirth, @MobileNumber, @EmailId)
+Go
