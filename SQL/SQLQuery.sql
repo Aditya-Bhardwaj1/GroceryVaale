@@ -21,7 +21,8 @@ UnitsInStock int not null constraint chk_UnitsInStock check(UnitsInStock >=1),
 Discontinued Bit default 1 ,
 CategoryId int constraint fk_CategoryId references Categories(CategoryID) ,
 CreatedDate DateTime not null default GetDate(),
-ModifiedDate Datetime 
+ModifiedDate Datetime ,
+ProductImage varchar(200)
 )
 
 
@@ -43,10 +44,17 @@ Create Procedure usp_AddProduct
 	@UnitPrice Money,
 	@UnitsInStock int,
 	@Discontinued Bit,
-	@CategoryId int
+	@CategoryId int,
+	@ProductImage varchar(200)
 As
-	Insert into Products(ProductName, [Description], UnitPrice, UnitsInStock, Discontinued, CategoryId)
-	values (@ProductName, @Description, @UnitPrice, @UnitsInStock, @Discontinued, @CategoryId)
+	if( exists(Select 'a' from Products Where ProductName = @ProductName))
+		return -1
+	else
+		begin
+		Insert into Products(ProductName, [Description], UnitPrice, UnitsInStock, Discontinued, CategoryId, ProductImage)
+		values (@ProductName, @Description, @UnitPrice, @UnitsInStock, @Discontinued, @CategoryId, @ProductImage)
+		return 99;
+		end
 Go
 
 Go
@@ -61,3 +69,5 @@ As
 	Insert into Users(FirstName, LastName, Gender, DateOfBirth, MobileNumber, EmailId)
 	values (@FirstName, @LastName, @Gender, @DateOfBirth, @MobileNumber, @EmailId)
 Go
+
+Select * from Users
