@@ -7,6 +7,8 @@ CategoryName varchar(100) not null,
 CategoryImage varchar(50)
 )
 
+ALTER TABLE Categories ALTER COLUMN CategoryImage VARCHAR (200);
+
 -- upfdate a column name 
 EXEC sp_rename 'Category.CateoryId', 'CategoryId', 'COLUMN';
 
@@ -35,3 +37,32 @@ MobileNumber char(10) constraint unk_MobileNumber Unique not null,
 EmailId varchar(150) constraint unk_EmailId Unique not null,
 CreatedDate DateTime not null default GetDate(),
 )
+
+Select * from Products
+
+go
+create proc usp_AddCategory(@CategoryName varchar(50), @CategoryImgUrl varchar(200))
+as 
+if( exists(Select 'a' from Categories Where CategoryName = @CategoryName))
+	return -1
+else
+	begin
+	Insert into Categories(CategoryName, CategoryImage) values (@CategoryName, @CategoryImgUrl);
+	return 99
+	end
+go
+
+go 
+create proc usp_UpdateProduct(@ProductId int, @ProductName varchar(50), @Description varchar(200), @UnitPrice Money, @UnitInStock int, @Discontinued Bit, @CategoryId int)
+as
+if( exists(Select 'a' from Products where ProductId=@ProductId))
+	begin
+		Update Products Set ProductName=@ProductName, [Description]=@Description, UnitPrice=@UnitPrice, UnitsInStock=@UnitInStock, Discontinued=@Discontinued, 
+		CategoryId=@CategoryId, ModifiedDate=GetDate() where ProductId=@ProductId;
+		return 99
+	end
+else
+	return -1
+go
+
+
