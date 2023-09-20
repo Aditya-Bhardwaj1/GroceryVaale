@@ -28,6 +28,7 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
             {
                 return BadRequest();
             }
+
             return Ok(dt);
         }
     }
