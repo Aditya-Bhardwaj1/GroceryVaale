@@ -16,7 +16,7 @@ namespace Grocery.Soti.Project.WebAPI
             // it is NOT necessary to register your controllers
 
             // e.g. container.RegisterType<ITestService, TestService>();
-            container.RegisterType<IProduct, ProductDetails>();
+            container.RegisterType<IProduct, ProductService>();
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
     }

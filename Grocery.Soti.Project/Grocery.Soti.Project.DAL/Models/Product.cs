@@ -18,7 +18,7 @@ namespace Grocery.Soti.Project.DAL.Models
 
         public int UnitsInStock { get; set; }
 
-        public Boolean Discontinued { get; set; }
+        public Int16 Discontinued { get; set; }
 
         public int CategoryId { get; set; }
 
