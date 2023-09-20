@@ -9,7 +9,11 @@ namespace Grocery.Soti.Project.DAL.Interfaces
 {
     public interface IProduct
     {
+<<<<<<< HEAD
         
         bool EditProduct(int productId, string productName, string description, decimal unitPrice, int unitInStock, bool discontinued, int categoryId);
+=======
+        List<Product> GetAllProducts();
+>>>>>>> origin/master
     }
 }

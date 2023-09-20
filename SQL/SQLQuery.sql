@@ -23,7 +23,8 @@ UnitsInStock int not null constraint chk_UnitsInStock check(UnitsInStock >=1),
 Discontinued Bit default 1 ,
 CategoryId int constraint fk_CategoryId references Categories(CategoryID) ,
 CreatedDate DateTime not null default GetDate(),
-ModifiedDate Datetime 
+ModifiedDate Datetime ,
+ProductImage varchar(200)
 )
 
 
@@ -38,6 +39,7 @@ EmailId varchar(150) constraint unk_EmailId Unique not null,
 CreatedDate DateTime not null default GetDate(),
 )
 
+<<<<<<< HEAD
 Select * from Products
 Select * from Categories
 
@@ -69,3 +71,39 @@ go
 
 
 
+=======
+Go
+Create Procedure usp_AddProduct 
+	@ProductName varchar(50),
+	@Description varchar(100),
+	@UnitPrice Money,
+	@UnitsInStock int,
+	@Discontinued Bit,
+	@CategoryId int,
+	@ProductImage varchar(200)
+As
+	if( exists(Select 'a' from Products Where ProductName = @ProductName))
+		return -1
+	else
+		begin
+		Insert into Products(ProductName, [Description], UnitPrice, UnitsInStock, Discontinued, CategoryId, ProductImage)
+		values (@ProductName, @Description, @UnitPrice, @UnitsInStock, @Discontinued, @CategoryId, @ProductImage)
+		return 99;
+		end
+Go
+
+Go
+Create Procedure usp_AddNewUser
+	@FirstName varchar(50),
+	@LastName varchar(50),
+	@Gender char(6),
+	@DateOfBirth Datetime,
+	@MobileNumber char(10),
+	@EmailId varchar(150)
+As
+	Insert into Users(FirstName, LastName, Gender, DateOfBirth, MobileNumber, EmailId)
+	values (@FirstName, @LastName, @Gender, @DateOfBirth, @MobileNumber, @EmailId)
+Go
+
+Select * from Users
+>>>>>>> origin/master

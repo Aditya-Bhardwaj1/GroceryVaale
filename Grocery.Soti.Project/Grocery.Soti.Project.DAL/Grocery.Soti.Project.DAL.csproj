@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="CategoriesDetails.cs" />
     <Compile Include="Class1.cs" />
+<<<<<<< HEAD
     <Compile Include="Interfaces\ICategory.cs" />
     <Compile Include="Interfaces\IProduct.cs" />
     <Compile Include="Models\Category.cs" />
@@ -51,6 +52,17 @@
     <Compile Include="ProductDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlConnectionStrings.cs" />
+=======
+    <Compile Include="Interfaces\IProduct.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlConnectionStrings.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+>>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\App.config" />
