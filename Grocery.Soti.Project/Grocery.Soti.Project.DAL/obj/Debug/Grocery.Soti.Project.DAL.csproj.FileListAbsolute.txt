@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Training\GroupAssignment\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.DAL\obj\Debug\Grocery.Soti.Project.DAL.csproj.AssemblyReference.cache
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Training\GroupAssignment\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.DAL\obj\Debug\Grocery.Soti.Project.DAL.csproj.CoreCompileInputs.cache
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Training\GroupAssignment\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.DAL\bin\Debug\Grocery.Soti.Project.DAL.dll.config
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Training\GroupAssignment\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.DAL\bin\Debug\Grocery.Soti.Project.DAL.dll
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Training\GroupAssignment\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.DAL\bin\Debug\Grocery.Soti.Project.DAL.pdb
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Training\GroupAssignment\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.DAL\obj\Debug\Grocery.Soti.Project.DAL.dll
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Training\GroupAssignment\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.DAL\obj\Debug\Grocery.Soti.Project.DAL.pdb
+=======
 C:\Soti Training\Project1.1\Grocery.Soti.Project\Grocery.Soti.Project.DAL\bin\Debug\Grocery.Soti.Project.DAL.dll.config
 C:\Soti Training\Project1.1\Grocery.Soti.Project\Grocery.Soti.Project.DAL\bin\Debug\Grocery.Soti.Project.DAL.dll
 C:\Soti Training\Project1.1\Grocery.Soti.Project\Grocery.Soti.Project.DAL\bin\Debug\Grocery.Soti.Project.DAL.pdb
@@ -5,3 +14,4 @@ C:\Soti Training\Project1.1\Grocery.Soti.Project\Grocery.Soti.Project.DAL\obj\De
 C:\Soti Training\Project1.1\Grocery.Soti.Project\Grocery.Soti.Project.DAL\obj\Debug\Grocery.Soti.Project.DAL.csproj.CoreCompileInputs.cache
 C:\Soti Training\Project1.1\Grocery.Soti.Project\Grocery.Soti.Project.DAL\obj\Debug\Grocery.Soti.Project.DAL.dll
 C:\Soti Training\Project1.1\Grocery.Soti.Project\Grocery.Soti.Project.DAL\obj\Debug\Grocery.Soti.Project.DAL.pdb
+>>>>>>> origin/master

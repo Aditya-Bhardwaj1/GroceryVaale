@@ -9,7 +9,11 @@ using System.Web.Http;
 
 namespace Grocery.Soti.Project.WebAPI.Controllers
 {
+<<<<<<< HEAD
+    [RoutePrefix("api/soti/products")]
+=======
     [RoutePrefix("api/Products")]
+>>>>>>> origin/master
     public class ProductsController : ApiController
     {
         private readonly IProduct _product = null;
@@ -19,6 +23,18 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
             _product = product;
         }
 
+<<<<<<< HEAD
+        [HttpPut]
+        [Route("UpdateProduct/{productId}")]
+        public IHttpActionResult EditProduct([FromUri] int productId, [FromBody] Product product)
+        {
+            var dt = _product.EditProduct(productId,product.ProductName,product.Description,product.UnitPrice,product.UnitsInStock,product.Discontinued,product.CategoryId);
+            if (!dt)
+            {
+                return BadRequest();
+            }
+
+=======
         [HttpGet]
         [Route("AllProducts")]
         public IHttpActionResult GetProducts()
@@ -28,6 +44,7 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
             {
                 return BadRequest();
             }
+>>>>>>> origin/master
             return Ok(dt);
         }
     }

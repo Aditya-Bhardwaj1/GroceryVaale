@@ -1,4 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
+<!-- Copyright (c)  Microsoft.  All Rights Reserved.  Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information. -->
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="Microsoft.Managed.Core.targets"/>
+
+=======
 <!-- Licensed to the .NET Foundation under one or more agreements. The .NET Foundation licenses this file to you under the MIT license. See the LICENSE file in the project root for more information. -->
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="Microsoft.Managed.Core.targets"/>
@@ -25,6 +31,7 @@
     <LangVersion Condition="'$(LangVersion)' == '' AND '$(_MaxSupportedLangVersion)' != ''">$(_MaxSupportedLangVersion)</LangVersion>
   </PropertyGroup>
 
+>>>>>>> origin/master
   <Target Name="CoreCompile"
           Inputs="$(MSBuildAllProjects);
                   @(Compile);
@@ -40,8 +47,12 @@
                   @(CustomAdditionalCompileInputs);
                   $(ResolvedCodeAnalysisRuleSet);
                   @(AdditionalFiles);
+<<<<<<< HEAD
+                  @(EmbeddedFiles)"
+=======
                   @(EmbeddedFiles);
                   @(EditorConfigFiles)"
+>>>>>>> origin/master
           Outputs="@(DocFileItem);
                    @(IntermediateAssembly);
                    @(IntermediateRefAssembly);
@@ -77,7 +88,10 @@
          AddModules="@(AddModules)"
          AdditionalFiles="@(AdditionalFiles)"
          AllowUnsafeBlocks="$(AllowUnsafeBlocks)"
+<<<<<<< HEAD
+=======
          AnalyzerConfigFiles="@(EditorConfigFiles)"
+>>>>>>> origin/master
          Analyzers="@(Analyzer)"
          ApplicationConfiguration="$(AppConfigForCompiler)"
          BaseAddress="$(BaseAddress)"
@@ -89,7 +103,10 @@
          DefineConstants="$(DefineConstants)"
          DelaySign="$(DelaySign)"
          DisabledWarnings="$(NoWarn)"
+<<<<<<< HEAD
+=======
          DisableSdkPath="$(DisableSdkPath)"
+>>>>>>> origin/master
          DocumentationFile="@(DocFileItem)"
          EmbedAllSources="$(EmbedAllSources)"
          EmbeddedFiles="@(EmbeddedFiles)"
@@ -100,7 +117,10 @@
          ErrorReport="$(ErrorReport)"
          Features="$(Features)"
          FileAlignment="$(FileAlignment)"
+<<<<<<< HEAD
+=======
          GeneratedFilesOutputPath="$(CompilerGeneratedFilesOutputPath)"
+>>>>>>> origin/master
          GenerateFullPaths="$(GenerateFullPaths)"
          HighEntropyVA="$(HighEntropyVA)"
          Instrument="$(Instrument)"
@@ -114,7 +134,10 @@
          NoLogo="$(NoLogo)"
          NoStandardLib="$(NoCompilerStandardLib)"
          NoWin32Manifest="$(NoWin32Manifest)"
+<<<<<<< HEAD
+=======
          Nullable="$(Nullable)"
+>>>>>>> origin/master
          Optimize="$(Optimize)"
          Deterministic="$(Deterministic)"
          PublicSign="$(PublicSign)"
@@ -126,13 +149,19 @@
          PreferredUILang="$(PreferredUILang)"
          ProvideCommandLineArgs="$(ProvideCommandLineArgs)"
          References="@(ReferencePathWithRefAssemblies)"
+<<<<<<< HEAD
+=======
          RefOnly="$(ProduceOnlyReferenceAssembly)"
+>>>>>>> origin/master
          ReportAnalyzer="$(ReportAnalyzer)"
          Resources="@(_CoreCompileResourceInputs);@(CompiledLicenseFile)"
          ResponseFiles="$(CompilerResponseFile)"
          RuntimeMetadataVersion="$(RuntimeMetadataVersion)"
          SharedCompilationId="$(SharedCompilationId)"
+<<<<<<< HEAD
+=======
          SkipAnalyzers="$(_SkipAnalyzers)"
+>>>>>>> origin/master
          SkipCompilerExecution="$(SkipCompilerExecution)"
          Sources="@(Compile)"
          SubsystemVersion="$(SubsystemVersion)"

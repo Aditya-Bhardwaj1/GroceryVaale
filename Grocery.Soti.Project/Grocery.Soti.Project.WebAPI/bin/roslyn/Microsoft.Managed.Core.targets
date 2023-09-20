@@ -1,13 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
+<!-- Copyright (c)  Microsoft.  All Rights Reserved.  Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information. -->
+=======
 <!-- Licensed to the .NET Foundation under one or more agreements. The .NET Foundation licenses this file to you under the MIT license. See the LICENSE file in the project root for more information. -->
+>>>>>>> origin/master
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <!--
     Common targets for managed compilers.
   -->
   <UsingTask TaskName="Microsoft.CodeAnalysis.BuildTasks.MapSourceRoots" AssemblyFile="$(MSBuildThisFileDirectory)Microsoft.Build.Tasks.CodeAnalysis.dll" />
 
+<<<<<<< HEAD
+=======
   <Import Project="Microsoft.Managed.Core.CurrentVersions.targets" />
 
+>>>>>>> origin/master
   <Target Name="ShimReferencePathsWhenCommonTargetsDoesNotUnderstandReferenceAssemblies"
           BeforeTargets="CoreCompile"
           Condition="'@(ReferencePathWithRefAssemblies)' == ''">
@@ -28,7 +35,11 @@
 
   <Target Name="_BeforeVBCSCoreCompile"
           DependsOnTargets="ShimReferencePathsWhenCommonTargetsDoesNotUnderstandReferenceAssemblies">
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> origin/master
     <ItemGroup Condition="'$(TargetingClr2Framework)' == 'true'">
       <ReferencePathWithRefAssemblies>
         <EmbedInteropTypes />
@@ -54,6 +65,8 @@
 
   <!--
     ========================
+<<<<<<< HEAD
+=======
     SkipAnalyzers Support
     ========================
     
@@ -197,6 +210,7 @@
 
   <!--
     ========================
+>>>>>>> origin/master
     DeterministicSourcePaths
     ========================
     
@@ -226,8 +240,12 @@
   -->
 
   <Target Name="InitializeSourceRootMappedPaths"
+<<<<<<< HEAD
+          DependsOnTargets="_InitializeSourceRootMappedPathsFromSourceControl">
+=======
           DependsOnTargets="_InitializeSourceRootMappedPathsFromSourceControl"
           Returns="@(SourceRoot)">
+>>>>>>> origin/master
 
     <ItemGroup Condition="'@(_MappedSourceRoot)' != ''">
       <_MappedSourceRoot Remove="@(_MappedSourceRoot)" />
@@ -275,6 +293,17 @@
           Condition="'$(DeterministicSourcePaths)' == 'true'">
 
     <ItemGroup>
+<<<<<<< HEAD
+      <_TopLevelSourceRoot Include="@(SourceRoot)" Condition="'%(SourceRoot.NestedRoot)' == ''"/>
+    </ItemGroup>
+
+    <PropertyGroup Condition="'@(_TopLevelSourceRoot)' != ''">
+      <!-- TODO: Report error/warning if /pathmap doesn't cover all emitted source paths: https://github.com/dotnet/roslyn/issues/23969 -->
+
+      <!-- TODO: PathMap should accept and ignore empty mapping: https://github.com/dotnet/roslyn/issues/23523 -->
+      <PathMap Condition="'$(PathMap)' != ''">,$(PathMap)</PathMap>
+
+=======
       <_TopLevelSourceRoot Include="@(SourceRoot)" Condition="'%(SourceRoot.NestedRoot)' == ''">
         <EscapedKey>$([MSBuild]::ValueOrDefault('%(Identity)', '').Replace(',', ',,').Replace('=', '=='))</EscapedKey>
         <EscapedValue>$([MSBuild]::ValueOrDefault('%(MappedPath)', '').Replace(',', ',,').Replace('=', '=='))</EscapedValue>
@@ -282,12 +311,23 @@
     </ItemGroup>
 
     <PropertyGroup Condition="'@(_TopLevelSourceRoot)' != ''">
+>>>>>>> origin/master
       <!--
         Prepend the SourceRoot.MappedPath values to PathMap, if it already has a value.
         For each emitted source path the compiler applies the first mapping that matches the path.
         PathMap values set previously will thus only be applied if the mapping provided by 
         SourceRoot.MappedPath doesn't match. Since SourceRoot.MappedPath is also used by SourceLink 
         preferring it over manually set PathMap ensures that PathMap is consistent with SourceLink.
+<<<<<<< HEAD
+      
+        TODO: quote the paths to avoid misinterpreting ',' and '=' in them as separators, 
+        but quoting doesn't currently work (see https://github.com/dotnet/roslyn/issues/22835).
+      -->
+      <PathMap>@(_TopLevelSourceRoot->'%(Identity)=%(MappedPath)', ',')$(PathMap)</PathMap>
+    </PropertyGroup>
+  </Target>
+
+=======
       -->
       <PathMap>@(_TopLevelSourceRoot->'%(EscapedKey)=%(EscapedValue)', ','),$(PathMap)</PathMap>
     </PropertyGroup>
@@ -350,4 +390,5 @@
     <ProjectCapability Include="RoslynComponent" Condition="'$(IsRoslynComponent)' == 'true'"/>
   </ItemGroup>
 
+>>>>>>> origin/master
 </Project>

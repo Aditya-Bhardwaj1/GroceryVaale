@@ -8,5 +8,6 @@ namespace Grocery.Soti.Project.DAL
 {
     public class Class1
     {
+        
     }
 }
