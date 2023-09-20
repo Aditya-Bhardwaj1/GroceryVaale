@@ -37,8 +37,8 @@
     color: white;
   }
   .border-color:hover{
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
     border-radius: 4px;
     padding: 7px;
   }
@@ -54,3 +54,14 @@
   
 }
   
+.background-color{
+  background-color: #2BAE66FF;
+
+}
+.background-color1{
+  background-color: #e7ebe0FF;
+}
+
+.click:click{
+  background-color: black;
+}
