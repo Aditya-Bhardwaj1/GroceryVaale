@@ -39,6 +39,7 @@ CreatedDate DateTime not null default GetDate(),
 )
 
 Select * from Products
+Select * from Categories
 
 go
 create proc usp_AddCategory(@CategoryName varchar(50), @CategoryImgUrl varchar(200))
@@ -64,5 +65,7 @@ if( exists(Select 'a' from Products where ProductId=@ProductId))
 else
 	return -1
 go
+
+
 
 
