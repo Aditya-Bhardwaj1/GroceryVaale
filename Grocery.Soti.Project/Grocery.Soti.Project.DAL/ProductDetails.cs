@@ -11,12 +11,16 @@ using Grocery.Soti.Project.DAL.Interfaces;
 
 namespace Grocery.Soti.Project.DAL
 {
-    public class ProductService : IProduct
+    public class ProductDetails : IProduct
     {
         private SqlConnection _connection = null;
         private SqlCommand _command = null;
         private SqlDataReader _reader = null;
 
+        /// <summary>
+        /// Gives all products list.
+        /// </summary>
+        /// <returns>Returns list of all Products</returns>
         public List<Product> GetAllProducts()
         {
             List<Product> products = new List<Product>();
@@ -41,9 +45,11 @@ namespace Grocery.Soti.Project.DAL
                                     Description = _reader.GetValue(2).ToString(),
                                     UnitPrice = Convert.ToDecimal(_reader.GetValue(3)),
                                     UnitsInStock = Convert.ToInt32(_reader.GetValue(4)),
-                                    Discontinued = Convert.ToInt16(_reader.GetValue(5)),
+                                    Discontinued = Convert.ToBoolean(_reader.GetValue(5)),
                                     CategoryId = Convert.ToInt32(_reader.GetValue(6)),
-                                    ProductImage = _reader.GetValue(7).ToString()
+                                    CreatedDate = Convert.ToDateTime(_reader.GetValue(7)),
+                                    ModifiedDate = Convert.ToDateTime(_reader?.GetValue(8)),
+                                    ProductImage = _reader.GetValue(9).ToString()
                                 });
                             }
                         }

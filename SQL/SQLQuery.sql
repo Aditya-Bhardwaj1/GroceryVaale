@@ -4,7 +4,7 @@ use FullStackAssignment
 create table Categories(
 CategoryId int identity(101,1) constraint pk_CategoryId primary key,
 CategoryName varchar(100) not null,
-CategoryImage varchar(50)
+CategoryImage varchar(500)
 )
 
 -- upfdate a column name 
@@ -22,7 +22,7 @@ Discontinued Bit default 1 ,
 CategoryId int constraint fk_CategoryId references Categories(CategoryID) ,
 CreatedDate DateTime not null default GetDate(),
 ModifiedDate Datetime ,
-ProductImage varchar(200)
+ProductImage varchar(500)
 )
 
 
@@ -70,4 +70,4 @@ As
 	values (@FirstName, @LastName, @Gender, @DateOfBirth, @MobileNumber, @EmailId)
 Go
 
-Select * from Users
+Select * from Users 
