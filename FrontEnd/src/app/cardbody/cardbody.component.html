@@ -1,0 +1,21 @@
+<!-- Browse category grid-->
+
+<div id="category-products" class="container">
+  <h2 class="text-center my-5"> Browse All Categories</h2>
+</div>
+<div class="container items">
+  <div class="row" >
+
+    <!-- Category List-->
+    <div class="col-md-2 col-lg-2 col-xs-2" *ngFor="let item of data">
+      <div class="card bg-light">
+        <div class="card-vegetables">
+          <img src="{{item.Url}}" class="card-img-top" style="border-radius: 70%;">
+        </div>
+        <div class="card-body">
+          <p class="card-text text-center" style="font-size: 18px;"><strong>{{item.name}}</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
