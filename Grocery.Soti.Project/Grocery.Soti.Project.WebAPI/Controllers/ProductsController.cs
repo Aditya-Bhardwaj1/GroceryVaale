@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace Grocery.Soti.Project.WebAPI.Controllers
 {
+    [RoutePrefix("api/soti/products")]
     public class ProductsController : ApiController
     {
         private readonly IProduct _product = null;
@@ -19,10 +20,10 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         }
 
         [HttpPut]
-        [Route("Products/UpdateProduct")]
-        public IHttpActionResult EditProduct([FromBody] Product product)
+        [Route("UpdateProduct/{productId}")]
+        public IHttpActionResult EditProduct([FromUri] int productId, [FromBody] Product product)
         {
-            var dt = _product.EditProduct(product.ProductId,product.ProductName,product.Description,product.UnitPrice,product.UnitsInStock,product.Discontinued,product.CategoryId);
+            var dt = _product.EditProduct(productId,product.ProductName,product.Description,product.UnitPrice,product.UnitsInStock,product.Discontinued,product.CategoryId);
             if (!dt)
             {
                 return BadRequest();
