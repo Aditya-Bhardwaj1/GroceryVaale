@@ -11,7 +11,7 @@ using Grocery.Soti.Project.DAL.Interfaces;
 
 namespace Grocery.Soti.Project.DAL
 {
-    public class ProductService : IProduct
+    public class ProductDetails : IProduct
     {
         private SqlConnection _connection = null;
         private SqlCommand _command = null;
