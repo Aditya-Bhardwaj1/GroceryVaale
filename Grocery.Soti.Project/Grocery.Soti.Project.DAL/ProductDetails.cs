@@ -38,13 +38,13 @@ namespace Grocery.Soti.Project.DAL
                             Discontinued = Convert.ToBoolean(x.Field<bool>("Discontinued")),
                             CategoryId = Convert.ToInt32(x.Field<int>("CategoryId")),
                             ProductImage = Convert.ToString(x.Field<string>("ProductImage"))
-                        }).FirstOrDefault(p=> p.ProductId==productId);
+                        }).FirstOrDefault(p => p.ProductId == productId);
                     }
                 }
             }
         }
 
-        public List<Product> searchProduct(string productName , decimal? productPrice )
+        public List<Product> searchProduct(string productName, decimal? productPrice)
         {
             using (_connection = new SqlConnection(SqlConnectionString.GetConnectionString))
             {
@@ -52,13 +52,13 @@ namespace Grocery.Soti.Project.DAL
                 {
                     using (_dataset = new DataSet())
                     {
-                        Regex regex= new Regex("");
-                        if (productName!=null)
+                        Regex regex = new Regex("");
+                        if (productName != null)
                         {
                             regex = new Regex(productName.Trim());
 
                         }
-                        if(productPrice==null)
+                        if (productPrice == null)
                         {
                             productPrice = 0;
                         }
@@ -76,7 +76,7 @@ namespace Grocery.Soti.Project.DAL
                             Discontinued = Convert.ToBoolean(x.Field<bool>("Discontinued")),
                             CategoryId = Convert.ToInt32(x.Field<int>("CategoryId")),
                             ProductImage = Convert.ToString(x.Field<string>("ProductImage"))
-                        }).Where(p => (regex.IsMatch(p.ProductName)) && p.UnitPrice>productPrice ).ToList();
+                        }).Where(p => (regex.IsMatch(p.ProductName)) && p.UnitPrice > productPrice).ToList();
                     }
                 }
             }

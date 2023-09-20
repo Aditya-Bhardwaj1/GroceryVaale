@@ -11,7 +11,7 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
     [RoutePrefix("api/soti/products")]
     public class ProductsController : ApiController
     {
-        private readonly IProduct _product= null;
+        private readonly IProduct _product = null;
         public ProductsController(IProduct product)
         {
             _product = product;
@@ -20,8 +20,8 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         [Route("getProductById/{productId}")]
         public IHttpActionResult getProductById([FromUri] int productId)
         {
-            var product=_product.GetProductById(productId);
-            if(product!=null)
+            var product = _product.GetProductById(productId);
+            if (product != null)
             {
                 return Ok(product);
             }
@@ -32,7 +32,7 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         [Route("getSearchedProducts")]
         public IHttpActionResult getSearchedProducts([FromUri] string productName, [FromUri] decimal? productPrice)
         {
-            var product = _product.searchProduct(productName,productPrice);
+            var product = _product.searchProduct(productName, productPrice);
             if (product != null)
             {
                 return Ok(product);
