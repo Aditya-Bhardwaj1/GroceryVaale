@@ -1,7 +1,7 @@
-C:\Users\asaraswat\Downloads\ProjectFullStack\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.DAL\bin\Debug\Grocery.Soti.Project.DAL.dll.config
-C:\Users\asaraswat\Downloads\ProjectFullStack\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.DAL\bin\Debug\Grocery.Soti.Project.DAL.dll
-C:\Users\asaraswat\Downloads\ProjectFullStack\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.DAL\bin\Debug\Grocery.Soti.Project.DAL.pdb
-C:\Users\asaraswat\Downloads\ProjectFullStack\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.DAL\obj\Debug\Grocery.Soti.Project.DAL.csproj.AssemblyReference.cache
-C:\Users\asaraswat\Downloads\ProjectFullStack\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.DAL\obj\Debug\Grocery.Soti.Project.DAL.csproj.CoreCompileInputs.cache
-C:\Users\asaraswat\Downloads\ProjectFullStack\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.DAL\obj\Debug\Grocery.Soti.Project.DAL.dll
-C:\Users\asaraswat\Downloads\ProjectFullStack\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.DAL\obj\Debug\Grocery.Soti.Project.DAL.pdb
+C:\Users\aygupta\HTML\SOTI.SEARCH_PRODUCT\SOTI.DAL.DEMO.SEARCH\bin\Debug\SOTI.DAL.DEMO.SEARCH.dll.config
+C:\Users\aygupta\HTML\SOTI.SEARCH_PRODUCT\SOTI.DAL.DEMO.SEARCH\bin\Debug\SOTI.DAL.DEMO.SEARCH.dll
+C:\Users\aygupta\HTML\SOTI.SEARCH_PRODUCT\SOTI.DAL.DEMO.SEARCH\bin\Debug\SOTI.DAL.DEMO.SEARCH.pdb
+C:\Users\aygupta\HTML\SOTI.SEARCH_PRODUCT\SOTI.DAL.DEMO.SEARCH\obj\Debug\SOTI.SEARCH.DAL.csproj.AssemblyReference.cache
+C:\Users\aygupta\HTML\SOTI.SEARCH_PRODUCT\SOTI.DAL.DEMO.SEARCH\obj\Debug\SOTI.SEARCH.DAL.csproj.CoreCompileInputs.cache
+C:\Users\aygupta\HTML\SOTI.SEARCH_PRODUCT\SOTI.DAL.DEMO.SEARCH\obj\Debug\SOTI.DAL.DEMO.SEARCH.dll
+C:\Users\aygupta\HTML\SOTI.SEARCH_PRODUCT\SOTI.DAL.DEMO.SEARCH\obj\Debug\SOTI.DAL.DEMO.SEARCH.pdb
