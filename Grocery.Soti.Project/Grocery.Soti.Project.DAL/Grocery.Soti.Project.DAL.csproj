@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{41169E90-9ADF-4CB3-A610-726A5767ED3A}</ProjectGuid>
+    <ProjectGuid>{9A3D09A9-AF8D-4729-830F-0710A2CFCEF3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Grocery.Soti.Project.DAL</RootNamespace>
-    <AssemblyName>Grocery.Soti.Project.DAL</AssemblyName>
+    <RootNamespace>SOTI.DAL.DEMO.SEARCH</RootNamespace>
+    <AssemblyName>SOTI.DAL.DEMO.SEARCH</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -42,10 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Interfaces\IProduct.cs" />
+    <Compile Include="Interface\ISearchProductByCategoryId.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="ProductDetails.cs" />
+    <Compile Include="SearchProductByCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlConnectionString.cs" />
   </ItemGroup>

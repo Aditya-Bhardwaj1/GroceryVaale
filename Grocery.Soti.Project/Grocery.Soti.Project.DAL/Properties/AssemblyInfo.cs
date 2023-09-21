@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Grocery.Soti.Project.DAL")]
+[assembly: AssemblyTitle("SOTI.DAL.DEMO.SEARCH")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SOTI Inc")]
-[assembly: AssemblyProduct("Grocery.Soti.Project.DAL")]
+[assembly: AssemblyProduct("SOTI.DAL.DEMO.SEARCH")]
 [assembly: AssemblyCopyright("Copyright © SOTI Inc 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("41169e90-9adf-4cb3-a610-726a5767ed3a")]
+[assembly: Guid("9a3d09a9-af8d-4729-830f-0710a2cfcef3")]
 
 // Version information for an assembly consists of the following four values:
 //

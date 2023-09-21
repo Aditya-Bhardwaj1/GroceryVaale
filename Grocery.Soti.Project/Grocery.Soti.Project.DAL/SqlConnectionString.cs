@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
-namespace Grocery.Soti.Project.DAL
+namespace SOTI.DAL.DEMO.SEARCH
 {
     public class SqlConnectionString
     {
-        public static string GetConnectionString
+
+        public static string GetConnectionString()
         {
-            get
-            {
-                return ConfigurationManager.ConnectionStrings["FullStackCon"].ConnectionString;
-            }
+            return ConfigurationManager.ConnectionStrings["FullStackCon"].ConnectionString;
         }
     }
 }
