@@ -48,15 +48,14 @@
   }
 
 .collapse{
- 
   display: flex;
   justify-content: space-between;
   
 }
   
 .background-color{
-  background-color: #2BAE66FF;
-
+  //background-color: #2BAE66FF;
+  background-color: #50C878;
 }
 .background-color1{
   background-color: #e7ebe0FF;
@@ -64,4 +63,7 @@
 
 .click:click{
   background-color: black;
+}
+.Browse:hover{
+   background-color: #50C878;
 }
