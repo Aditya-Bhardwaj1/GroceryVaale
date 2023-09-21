@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
+using Unity;
 
-namespace Grocery.Soti.Project.WebAPI
+namespace SOTI.SEARCH_PRODUCT
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
