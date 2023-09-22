@@ -12,5 +12,9 @@ namespace Grocery.Soti.Project.DAL.Interfaces
         Product GetProductById(int productId);
 
         List<Product> searchProduct(string productName, decimal? productPrice);
+
+        //Search Product by categoryId
+
+        List<Product> ListProducts(int CategoryId);
     }
 }

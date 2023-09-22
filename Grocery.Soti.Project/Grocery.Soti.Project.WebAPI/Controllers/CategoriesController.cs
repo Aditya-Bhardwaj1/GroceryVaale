@@ -7,10 +7,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Grocery.Soti.Project.WebAPI.Controllers
 {
-    [Route("api/soti/categories")]
+    [EnableCors("*", "*", "*")]
+    [RoutePrefix("api/soti/categories")]
     public class CategoriesController : ApiController
     {
         private readonly ICategory _categories = null;
@@ -36,7 +38,7 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         [Route("AddCategory")]
         public IHttpActionResult InsertCategory([FromBody] Category category)
         {
-            var dt = _categories.InsertCategory(category.CategoryName, category.CategoryImageUrl);
+            var dt = _categories.InsertCategory(category.CategoryName, category.CategoryImage);
             if (!dt)
             {
                 return BadRequest();

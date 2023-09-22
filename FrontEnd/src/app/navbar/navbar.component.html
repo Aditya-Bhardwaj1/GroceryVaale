@@ -1,0 +1,80 @@
+<!-- NavBar Creation Starts form here!!-->
+
+<nav class="navbar background-color">
+  <div class="container">
+ <!-- TODO Fixed top for navigation bar -->
+
+    <!-- brand logo -->
+    <a class="navbar-brand" href="#"><img class="navbar-logo" src="../../assets/Images/Navbar_logo.png"></a>
+    <!--TODO : change font - color of the text-->
+    <a class="navbar-brand text-white" href="#"><span class="text-warning "><b>Gro</b></span><b>Cery</b></a>
+
+    <!-- Search Bar-->
+          <form class="navbar-form navbar-center" role="search">
+            <div class="form-group">
+              <div class="input-group searchdiv">
+                <div>
+                  <input type="text" class="form-control searchs" placeholder="Search">
+                </div>
+                <div class="input-group-text border-0 search-icon" id="search-addon">
+                  <button class=" bi bi-search search border-0 bg-white"></button>
+                </div>
+              </div>
+            </div>
+          </form>
+        <!-- Contact us-->
+        <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link border-color" href="#" aria-disabled="true">Contact Us</a>
+        </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- second nav bar-->
+<nav class="navbar navbar-expand-sm background-color1">
+  <div class="container">
+    <!-- Toggle Button-->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div>
+        <ul class="navbar-nav ">
+          <!-- Browse Category-->
+          <div class="dropdown">
+            <li class="nav-item nav-change">
+              <a class="btn btn-dark nav-link text-white active " target="_self" aria-current="page"
+                href="#category-products">
+                <i class="bi bi-cart"></i> Browse Category</a>
+            </li>
+          </div>
+          <!--Home-->
+          <li class="nav-item nav-change m-0">
+            <a class="nav-link text-black active" target="_self" aria-current="page" href="/">Home</a>
+          </li>
+
+          <!--Products-->
+          <li class="nav-item nav-change m-0">
+            <a class="nav-link text-black" target="_self" href="/products">Products</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <ul class="navbar-nav">
+          <!-- About Us-->
+          <li class="nav-item nav-change">
+            <a class="nav-link text-black" target="_self" href="#" aria-disabled="true">About us</a>
+          </li>
+
+          <!-- Login-->
+          <li class="nav-item nav-change">
+            <a routerLinkActive="active" ariaCurrentWhenActive="page" class="nav-link text-black" target="_self"
+              href="/login" aria-disabled="true">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
