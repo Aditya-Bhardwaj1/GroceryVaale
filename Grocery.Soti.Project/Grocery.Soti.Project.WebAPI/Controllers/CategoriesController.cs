@@ -7,10 +7,12 @@ using Grocery.Soti.Project.DAL.Models;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Grocery.Soti.Project.WebAPI.Controllers
 {
-
+    [EnableCors("*", "*", "*")]
+    [RoutePrefix("api/Categories")]
     public class CategoriesController : ApiController
     {
         private readonly ICategory _categories = null;
@@ -21,7 +23,7 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("Categories/GetAllCategories")]
+        [Route("GetAllCategories")]
         public IHttpActionResult GetAllCategories()
         {
             var dt = _categories.GetAllCategories();

@@ -4,7 +4,7 @@ export class Product {
     description?: string;
     unitPrice? : number;
     unitsInStock?:number;
-    dicontinued?:boolean;
+    discontinued?:boolean;
     categoryId?:number;
     createdDate? : Date;
     modifiedDate?:Date;
