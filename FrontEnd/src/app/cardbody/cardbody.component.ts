@@ -13,35 +13,22 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./cardbody.component.scss']
 })
 export class CardbodyComponent implements OnInit, OnDestroy {
-
   // get all categories
 
   categories: Category[] = [];
-
   sub$?: Subscription;
-
   constructor(private categoryService: CategoryService, private productService: ProductService, private e1 :ElementRef){}
-
   ngOnInit(): void {
     this.sub$ = this.categoryService.getCategories().subscribe({
-
       next: (data) => {this.categories = data; console.log(data)},
-
       error: (err) => {console.error(err)}
-
     })
-
   }
-
   ngOnDestroy(): void {
-
     this.sub$?.unsubscribe();
   }
-  
     // get product by category Id
-
     products: Product[] = [];
-
     OnClicked(category :Category){
      // console.log(category.CategoryId)
      this.sub$ = this.productService.getProductsByCategoryId(category.categoryId!).subscribe(
@@ -50,17 +37,10 @@ export class CardbodyComponent implements OnInit, OnDestroy {
         error: (err)=>console.log(err)
       }
      )
-
      const targetDiv = this.e1.nativeElement.querySelector('#listProducts');
      if (targetDiv) {
        targetDiv.scrollIntoView({ behavior: 'smooth' });
      }
 
     }
-    
-
-
-    
-    
-
 }
