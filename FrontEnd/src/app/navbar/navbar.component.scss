@@ -55,10 +55,10 @@
   
 .background-color{
   //background-color: #2BAE66FF;
-  background-color: #50C878;
+  background-color: #6AB547;
 }
 .background-color1{
-  background-color: #e7ebe0FF;
+  background-color: #F3F9E3;
 }
 
 .click:click{
@@ -66,4 +66,18 @@
 }
 .Browse:hover{
    background-color: #50C878;
+}
+
+.searchs{
+  width: 500px !important;
+  max-width: 500px !important;
+}
+
+.searchdiv{
+  display: flex !important;
+  flex-direction: row !important;
+  background-color: pink;
+}
+.search-icon{
+  float: right !important;
 }
