@@ -6,9 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Grocery.Soti.Project.WebAPI.Controllers
 {
+    [EnableCors("*", "*", "*")]
     [RoutePrefix("api/Products")]
     public class ProductsController : ApiController
     {
@@ -17,6 +19,17 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         public ProductsController(IProduct product)
         {
             _product = product;
+        }
+        [HttpGet]
+        [Route("getProductById/{productId}")]
+        public IHttpActionResult getProductById([FromUri] int productId)
+        {
+            var product = _product.GetProductById(productId);
+            if (product != null)
+            {
+                return Ok(product);
+            }
+            return NotFound();
         }
 
         [HttpGet]

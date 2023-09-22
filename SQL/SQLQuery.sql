@@ -70,4 +70,4 @@ As
 	values (@FirstName, @LastName, @Gender, @DateOfBirth, @MobileNumber, @EmailId)
 Go
 
-Select * from Users
+Select * from Products
