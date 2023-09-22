@@ -12,7 +12,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProductsByCategoryId(categoryId: number):Observable<Product[]>{
-    return this.http.get<Product[]>(`${this.baseUrl}/${categoryId}`)
+    return this.http.get<Product[]>(`${this.baseUrl}/getProductByCategoryId/${categoryId}`)
   }
 
 }
