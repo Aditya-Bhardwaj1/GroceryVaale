@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './carasool.component.html',
   styleUrls: ['./carasool.component.scss']
 })
-export class CarasoolComponent implements OnInit {
+export class CarasoolComponent {
 
 
   public getJsonValue: any;
@@ -17,11 +17,11 @@ export class CarasoolComponent implements OnInit {
   
      
  }
-  ngOnInit(): void {
-    this.getMethod();
-  }
+  // ngOnInit(): void {
+  //   this.getMethod();
+  // }
 
-  public getMethod(){
-    this.http.get('http://localhost:8000/api/soti/products/104').subscribe();
-  }
+  // public getMethod(){
+  //   this.http.get('http://localhost:8000/api/soti/products/104').subscribe();
+  // }
 }
