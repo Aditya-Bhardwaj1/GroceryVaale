@@ -1,13 +1,16 @@
 ﻿using Grocery.Soti.Project.DAL.Interfaces;
+using Grocery.Soti.Project.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Grocery.Soti.Project.WebAPI.Controllers
 {
+    [EnableCors("*", "*", "*")]
     [RoutePrefix("api/soti/products")]
     public class ProductsController : ApiController
     {
@@ -39,5 +42,20 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
             }
             return NotFound();
         }
+
+        [HttpGet]
+
+        [Route("getProductByCategoryId/{CategoryId}")]
+        public IHttpActionResult ListProducts([FromUri] int CategoryId)
+        {
+            var searchProduct = _product.ListProducts(CategoryId);
+
+            if (searchProduct == null)
+            {
+                return NotFound();
+            }
+            return Ok(searchProduct);
+        }
+
     }
 }
