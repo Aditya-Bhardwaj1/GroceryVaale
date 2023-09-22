@@ -15,7 +15,6 @@ namespace Grocery.Soti.Project.DAL.Interfaces
 
         //Search Product by categoryId
 
-         List<Product> SearchProductByCategoryId(int CategoryId);
-
+        List<Product> ListProducts(int CategoryId);
     }
 }

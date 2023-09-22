@@ -11,5 +11,6 @@ namespace Grocery.Soti.Project.DAL.Interfaces
     {
         bool InsertCategory(string categoryName, string categoryImgUrl);
         List<Category> GetAllCategories();
+
     }
 }
