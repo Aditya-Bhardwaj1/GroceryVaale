@@ -1,5 +1,6 @@
 <!-- Browse category grid-->
-
+<!--TODO  carasoul implementation -->
+<!--TODO - width size implement-->
 <div id="category-products" class="container">
   <h2 class="text-center my-5"> Browse All Categories<br><p class="para">Hungry? We Deliver</p></h2>
 </div>
@@ -7,15 +8,44 @@
   <div class="row" >
 
     <!-- Category List-->
-    <div class="col-md-2 col-lg-2 col-xs-2" *ngFor="let item of data">
-      <div class="card bg-light">
+    <div class="col-md-2 col-lg-2 col-xs-2 listProducts" *ngFor="let item of categories" (click)="OnClicked(item)">
+      <div class="card card-ay bg-light">
         <div class="card-vegetables">
-          <img src="{{item.Url}}" class="card-img-top" style="border-radius: 70%;">
+          <img src="{{item.categoryImage}}" class="card-img-top" style="border-radius: 70%;">
         </div>  
         <div class="card-body">
-          <p class="card-text text-center" style="font-size: 18px;"><strong>{{item.name}}</strong></p>
+          <p class="card-text text-center" style="font-size: 18px;"><strong>{{item.categoryName}}</strong></p>
         </div>
       </div>
     </div>
+    </div>
+    </div>
+
+
+<div class="container products-container" id="listProducts">
+
+  <div class="card card-ad mt-5" *ngFor="let item of products">
+
+    <img src="{{item.productImage}}" class="card-img-top card-img-size center" alt="..." >
+
+    <div class="card-body">
+
+      <h5 class="card-title text-center">{{item.productName}}</h5>
+
+      <p class="card-text mb-2">Some quick example text to build on </p>
+
+      <div class="price-cart-container">
+
+        <h6>Rs. {{item.unitPrice}}</h6>
+
+        <a href="#" class="btn btn-success cart-btn mb-2">Add to Cart</a>
+
+      </div>
+
+     
+
+    </div>
+
   </div>
+
 </div>

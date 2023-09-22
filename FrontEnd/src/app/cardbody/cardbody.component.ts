@@ -1,37 +1,66 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, Provider } from '@angular/core';
 import { NgForOf } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { Subscription, subscribeOn } from 'rxjs';
+import { Product } from '../models/product.model';
+import { Category } from '../models/category.model';
+import { CategoryService } from '../services/category.service';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-cardbody',
   templateUrl: './cardbody.component.html',
   styleUrls: ['./cardbody.component.scss']
 })
-export class CardbodyComponent {
-     data=[
+export class CardbodyComponent implements OnInit, OnDestroy {
+
+  // get all categories
+
+  categories: Category[] = [];
+
+  sub$?: Subscription;
+
+  constructor(private categoryService: CategoryService, private productService: ProductService, private e1 :ElementRef){}
+
+  ngOnInit(): void {
+    this.sub$ = this.categoryService.getCategories().subscribe({
+
+      next: (data) => {this.categories = data; console.log(data)},
+
+      error: (err) => {console.error(err)}
+
+    })
+
+  }
+
+  ngOnDestroy(): void {
+
+    this.sub$?.unsubscribe();
+  }
+  
+    // get product by category Id
+
+    products: Product[] = [];
+
+    OnClicked(category :Category){
+     // console.log(category.CategoryId)
+     this.sub$ = this.productService.getProductsByCategoryId(category.categoryId!).subscribe(
       {
-        name: 'Vegatables',
-        Url: "../../assets/Images/Vegatable-icon.jpg"
-      },
-      {
-        name: 'Coffee and Drinks',
-        Url: "../../assets/Images/coffee-icon.jpg"
-      },
-      {
-        name: 'Milk and Dairy',
-        Url: "../../assets/Images/milk&dairy-icon.jpg"
-      },
-      {
-        name: 'Meat',
-        Url: "../../assets/Images/meat-icon.jpg"
-      },
-      {
-        name: 'Fresh Fruits',
-        Url: "../../assets/Images/fruits-icon.jpg"
-      },
-      {
-        name: 'Cleaning Essentials',
-        Url: "../../assets/Images/cleaning&essential.jpg"
+        next:(Data) => {this.products=Data  ;console.log(Data)},
+        error: (err)=>console.log(err)
       }
-    ]
+     )
+
+     const targetDiv = this.e1.nativeElement.querySelector('#listProducts');
+     if (targetDiv) {
+       targetDiv.scrollIntoView({ behavior: 'smooth' });
+     }
+
+    }
+    
+
+
+    
+    
 
 }
