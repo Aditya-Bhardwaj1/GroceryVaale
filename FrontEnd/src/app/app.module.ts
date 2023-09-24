@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 const appRoutes: Routes = [
   //{ path: '', component: NavbarComponent} // localhost:8000
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     CarasoolComponent,
     CardbodyComponent,
-    FooterComponent
+    FooterComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
