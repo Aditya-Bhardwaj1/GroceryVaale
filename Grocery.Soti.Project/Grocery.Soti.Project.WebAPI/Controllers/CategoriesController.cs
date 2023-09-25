@@ -10,7 +10,7 @@ using System.Web.Http;
 
 namespace Grocery.Soti.Project.WebAPI.Controllers
 {
-    [Route("api/soti/categories")]
+    [RoutePrefix("api/soti/categories")]
     public class CategoriesController : ApiController
     {
         private readonly ICategory _categories = null;

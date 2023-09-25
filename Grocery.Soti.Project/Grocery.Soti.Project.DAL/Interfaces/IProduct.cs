@@ -9,6 +9,10 @@ namespace Grocery.Soti.Project.DAL.Interfaces
 {
     public interface IProduct
     {
+        List<Product> GetAllProducts();
+
+        bool AddProduct(Product product);
+
         Product GetProductById(int productId);
 
         List<Product> searchProduct(string productName, decimal? productPrice);
