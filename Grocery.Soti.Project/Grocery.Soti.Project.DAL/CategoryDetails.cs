@@ -29,7 +29,7 @@ namespace Grocery.Soti.Project.DAL
                         {
                             CategoryId = x.Field<int>("CategoryId"),
                             CategoryName = x.Field<string>("CategoryName"),
-                            CategoryImageUrl = x.Field<string>("CategoryImage"),
+                            CategoryImage = x.Field<string>("CategoryImage"),
 
                         }).ToList();
 

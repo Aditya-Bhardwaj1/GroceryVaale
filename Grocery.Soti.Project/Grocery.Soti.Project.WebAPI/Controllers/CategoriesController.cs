@@ -35,10 +35,10 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("Categories/AddCategory")]
+        [Route("AddCategory")]
         public IHttpActionResult InsertCategory([FromBody] Category category)
         {
-            var dt = _categories.InsertCategory(category.CategoryName, category.CategoryImageUrl);
+            var dt = _categories.InsertCategory(category.CategoryName, category.CategoryImage);
             if (!dt)
             {
                 return BadRequest();

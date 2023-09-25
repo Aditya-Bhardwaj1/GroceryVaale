@@ -84,7 +84,7 @@ namespace Grocery.Soti.Project.DAL
             }
             return products;
         }
-        public bool EditProduct(int productId, string productName, string description, decimal unitPrice, int unitInStock, bool discontinued, int categoryId)
+        public bool EditProduct(int productId, string productName, string description, decimal unitPrice, int unitInStock, bool discontinued, int categoryId, string productImageUrl)
         {
             using (_connection = new SqlConnection(SqlConnectionString.GetConnectionString))
             {
@@ -98,6 +98,7 @@ namespace Grocery.Soti.Project.DAL
                     _adapter.SelectCommand.Parameters.AddWithValue("@UnitInStock", unitInStock);
                     _adapter.SelectCommand.Parameters.AddWithValue("@Discontinued", discontinued);
                     _adapter.SelectCommand.Parameters.AddWithValue("@CategoryId", categoryId);
+                    _adapter.SelectCommand.Parameters.AddWithValue("@ProductImage", productImageUrl);
 
 
                     SqlParameter param = new SqlParameter("@return", SqlDbType.Int);

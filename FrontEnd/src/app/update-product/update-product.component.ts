@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { ProductService } from '../services/product.service';
 import { Category } from '../models/category';
 import { CategoryService } from '../services/category.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class UpdateProductComponent implements OnInit{
   isSubmitted: boolean = false;
   
 
-  constructor(private productService:ProductService,private fb:FormBuilder, private categoryService: CategoryService ) { }
+  constructor(private productService:ProductService,private fb:FormBuilder, private categoryService: CategoryService, private router: Router,
+    private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
     
@@ -38,15 +40,19 @@ export class UpdateProductComponent implements OnInit{
       unitPrice: [null, [Validators.required]],
       unitsInStock:[null, Validators.required],
       categoryId: [null,[Validators.required]],
+      productImage: [null,[Validators.required]],
       // password: [null, [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
       // confirmPassword: [null,[Validators.required, Validators.minLength(8)]],
     }
-    )
+    );
+    const producId = this.route.snapshot.paramMap.get('id');
     this.sub2$ = this.categoryService.getCategories().subscribe({
       next: (data)=>{this.categories=data; console.log(data)},
       error: (err) => {console.error(err)}
     })
-    this.sub$ = this.productService.getProductsById(1001).subscribe({
+
+    if (producId !== null)
+    this.sub$ = this.productService.getProductsById(+producId).subscribe({
       next: (data) => {this.product = data; console.log(data);  this.productForm.patchValue(data); this.productForm.get("discontinuedd")?.patchValue(data.discontinued)},
       error: (err) => {console.error(err)}
     })

@@ -48,7 +48,7 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         [Route("updateProduct/{productId}")]
         public IHttpActionResult UpdateProduct([FromUri] int productId, [FromBody] Product product)
         {
-            var dt = _product.EditProduct(productId, product.ProductName, product.Description, product.UnitPrice,product.UnitsInStock,product.Discontinued,product.CategoryId);
+            var dt = _product.EditProduct(productId, product.ProductName, product.Description, product.UnitPrice,product.UnitsInStock,product.Discontinued,product.CategoryId, product.ProductImage);
             if (!dt)
             {
                 return BadRequest();

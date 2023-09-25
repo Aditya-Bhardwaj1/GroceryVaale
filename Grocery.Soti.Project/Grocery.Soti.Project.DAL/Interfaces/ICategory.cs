@@ -9,7 +9,7 @@ namespace Grocery.Soti.Project.DAL.Interfaces
 {
     public interface ICategory
     {
-        bool InsertCategory(string categoryName, string categoryImgUrl);
+        bool InsertCategory(string categoryName, string categoryImage);
         List<Category> GetAllCategories();
     }
 }

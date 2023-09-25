@@ -11,6 +11,6 @@ namespace Grocery.Soti.Project.DAL.Interfaces
     {
         Product GetProductById(int productId);
         List<Product> GetAllProducts();
-        bool EditProduct(int productId, string productName, string description, decimal unitPrice, int unitInStock, bool discontinued, int categoryId);
+        bool EditProduct(int productId, string productName, string description, decimal unitPrice, int unitInStock, bool discontinued, int categoryId, string productImageUrl);
     }
 }
