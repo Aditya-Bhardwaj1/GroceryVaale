@@ -1,35 +1,35 @@
 <!-- Browse category grid-->
-<!--TODO  font-size for card text-->
 <!--TODO - width size implement-->
 <!--TODO - color of navbar -->
 <!--TODO Responsive -->
 
-<div id="category-products" class="container">
-  <h2 class="text-center my-5"> Browse All Categories<br><p class="para">Hungry? We Deliver</p></h2>
+<div id="categories" class="container">
+  <h2 class="text-center my-5"> Browse All Categories<br>
+    <p class="para" style="color: green;"><i>Hungry? We Deliver</i></p>
+  </h2>
 </div>
-<div class="container items">
-  <div class="row" >
-
+<div class="container card-size">
+  <div class="row">
     <!-- Category List-->
-    <div class="col-md-2 col-lg-2 col-xs-2 listProducts" *ngFor="let item of categories" (click)="OnClicked(item)">
+    <div class="col-md-3" *ngFor="let item of categories" (click)="OnClicked(item)">
       <div class="card card-ay bg-light">
         <div class="card-vegetables">
-          <img src="{{item.categoryImage}}" class="card-img-top" style="border-radius: 70%;">
-        </div>  
+          <img src="{{item.categoryImage}}" class="card-img-top" style="border-radius:70%;">
+        </div>
         <div class="card-body">
           <p class="card-text text-center" style="font-size: 18px;"><strong>{{item.categoryName}}</strong></p>
         </div>
       </div>
     </div>
-    </div>
-    </div>
+  </div>
+</div>
 
 
 <div class="container products-container" id="listProducts">
 
   <div class="card card-ad mt-5" *ngFor="let item of products">
 
-    <img src="{{item.productImage}}" class="card-img-top card-img-size center" alt="..." >
+    <img src="{{item.productImage}}" class="card-img-top card-img-size center" alt="...">
 
     <div class="card-body">
 
@@ -45,7 +45,7 @@
 
       </div>
 
-     
+
 
     </div>
 

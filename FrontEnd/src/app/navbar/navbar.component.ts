@@ -7,6 +7,9 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+   c(){
+    console.log("workinggg");
+   }
 
   public searchText?:string;
   productName:string="";

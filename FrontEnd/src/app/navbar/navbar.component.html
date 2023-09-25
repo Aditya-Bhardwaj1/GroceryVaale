@@ -1,80 +1,65 @@
-<!-- NavBar Creation Starts form here!!-->
+<!-- navbar creation starts from here-->
 
-<nav class="navbar background-color">
+<!-- first navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-color-first">
   <div class="container">
- <!-- TODO Fixed top for navigation bar -->
+    <!-- brand name and logo-->
+    <a class="navbar-brand" href="#"><img class="navbar-logo" src="../../assets/Images/Navbar_logo.png" style="height: 50px; border-radius: 50%;"></a>
+    <a class="navbar-brand" href="#"><span class="text-warning"><b>Super</b></span><b>Mart</b></a>
 
-    <!-- brand logo -->
-    <a class="navbar-brand" href="#"><img class="navbar-logo" src="../../assets/Images/Navbar_logo.png"></a>
-    <!--TODO : change font - color of the text-->
-    <a class="navbar-brand text-white" href="#"><span class="text-warning "><b>Gro</b></span><b>Cery</b></a>
+    <!-- toggle button-->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
 
-    <!-- Search Bar-->
-          <form class="navbar-form navbar-center" role="search">
-            <div class="form-group">
-              <div class="input-group searchdiv">
-                <div>
-                  <input type="text" class="form-control searchs" placeholder="Search">
-                </div>
-                <div class="input-group-text border-0 search-icon" id="search-addon">
-                  <button class=" bi bi-search search border-0 bg-white"></button>
-                </div>
-              </div>
-            </div>
-          </form>
-        <!-- Contact us-->
-        <ul class="navbar-nav">
+      <!-- search bar-->
+      <form class="d-flex search-box" action="">
+        <input class="form-control ms-auto" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn border" (click)="c()" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+      
+      <!-- contact us -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link border-color" href="#" aria-disabled="true">Contact Us</a>
+          <a class="nav-link active mx-3 nav-change" href="#">Contact Us</a>
         </li>
-        </ul>
+      </ul>
+      
     </div>
+  </div>
 </nav>
 
-<!-- second nav bar-->
-<nav class="navbar navbar-expand-sm background-color1">
+<!-- second navbar-->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-color-second">
   <div class="container">
-    <!-- Toggle Button-->
+    <!-- Browse category-->
+        <a class="btn btn-outline-light bg-dark text-white active glyphicon glyphicon-th-list" target="_self" aria-current="page" href="#categories">
+          <i class="bi bi-cart"></i> Browse Category
+        </a>
+    <!-- Toggle button-->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <div>
-        <ul class="navbar-nav ">
-          <!-- Browse Category-->
-          <div class="dropdown">
-            <li class="nav-item nav-change">
-              <a class="btn btn-dark nav-link text-white active " target="_self" aria-current="page"
-                href="#category-products">
-                <i class="bi bi-cart"></i> Browse Category</a>
-            </li>
-          </div>
-          <!--Home-->
-          <li class="nav-item nav-change m-0">
-            <a class="nav-link text-black active" target="_self" aria-current="page" href="/">Home</a>
-          </li>
-
-          <!--Products-->
-          <li class="nav-item nav-change m-0">
-            <a class="nav-link text-black" target="_self" href="/products">Products</a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <ul class="navbar-nav">
-          <!-- About Us-->
-          <li class="nav-item nav-change">
-            <a class="nav-link text-black" target="_self" href="#" aria-disabled="true">About us</a>
-          </li>
-
-          <!-- Login-->
-          <li class="nav-item nav-change">
-            <a routerLinkActive="active" ariaCurrentWhenActive="page" class="nav-link text-black" target="_self"
-              href="/login" aria-disabled="true">Login</a>
-          </li>
-        </ul>
-      </div>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link nav-change active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-change active" href="#">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-change active" href="#">About us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-change active" href="#">Login</a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
+
