@@ -14,5 +14,15 @@ export class CategoryService {
 
     return this.http.get<Category[]>(`${this.baseUrl}/GetAllCategories`)
   }
+  
+   addCategory(_categoryName:string,_categoryImage:string):Observable<Boolean>{
+     const category= new Category();
+     
+      category.categoryName=_categoryName;
+      category.categoryImage=_categoryImage;
+     
+     category.categoryName
+    return this.http.post<Boolean>(this.baseUrl+"/AddCategory",category);
+  }
 }
 
