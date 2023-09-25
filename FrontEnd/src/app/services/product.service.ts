@@ -11,6 +11,7 @@ export class ProductService {
   baseUrl = "http://localhost:34567/api/soti/products"
   public productName?:string;
   public productPrice?:number;
+  searchText?:string;
   constructor(private http: HttpClient) { }
 
   getProductsByCategoryId(categoryId: number):Observable<Product[]>{
@@ -18,7 +19,6 @@ export class ProductService {
   }
 
   getSearchedProducts( ):Observable<Product[]>{
-    this.setSearchDetails("pro",0);
     const params= new HttpParams()
   .set('productName',this.productName!)
   .set('productPrice',this.productPrice!);
@@ -26,9 +26,39 @@ export class ProductService {
   
   }
 
-  setSearchDetails( productName:string ,productPrice:number):void{
+  setSearchDetails( searchText:string,productName:string ,productPrice:number):void{
+
+    this.searchText= searchText;
+
     this.productName=productName;
+
     this.productPrice=productPrice;
+
   }
 
+  getProducts():Observable<Product[]>{
+    return this.http.get<Product[]>(`${this.baseUrl}/AllProducts`)
+  }
+
+  getProductsById(productId: number):Observable<Product>{
+    return this.http.get<Product>(`${this.baseUrl}/getProductById/${productId}`)
+  }
+
+  updateProduct(productId: number, product:Product):Observable<Product>{
+    return this.http.put<Product>(`${this.baseUrl}/updateProduct/${productId}`,product)
+  }
+
+
+getSearchedText():string{
+
+    if(this.searchText==null)
+    {
+
+      return "";
+
+    }
+
+    return this.searchText!;
+
+  }
 }
