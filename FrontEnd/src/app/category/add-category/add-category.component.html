@@ -1,0 +1,31 @@
+<div class="row mt-3">
+    <div class="col-md-4 offset-4">
+        <div class="card custom-card">
+            <div class=" text-success text-center ">
+                <h3>Add New Category</h3>
+            </div>
+            <div class="card-body">
+                <form action="" class="custom-from" [formGroup]="addCategoryForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-3">
+                        <label for="" class="col-from-label">Category Name</label>
+                        <input  type="text"  class="form-control custom-input" placeholder="Enter Category Name" formControlName="categoryName">
+                        <div *ngIf="(isSubmitted ||f['categoryName'].touched) && f['categoryName'].errors" class="text-danger small"> 
+                            <span *ngIf="f['categoryName'].errors?.['required']">categoryName is required</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="col-from-label">Category Image</label>
+                        <input type="file"  class="form-control custom-input" placeholder="Enter Category Image" formControlName="categoryImage" (change)="onSelectingImage($event)">
+                        <div *ngIf="(isSubmitted ||f['categoryImage'].touched) && f['categoryImage'].errors" class="text-danger small"> 
+                            <span *ngIf="f['categoryImage'].errors?.['required']">categoryImage is required</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 text-center">
+                        <button type="submit" class="btn btn-success">Add Category</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
