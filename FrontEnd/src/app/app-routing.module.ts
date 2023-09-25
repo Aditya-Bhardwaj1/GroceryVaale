@@ -4,11 +4,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CarasoolComponent } from './carasool/carasool.component';
 import { CardbodyComponent } from './cardbody/cardbody.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { HomeComponent } from './home/home.component';
+import { SearchPageComponent } from './product/search-page/search-page.component';
 const routes: Routes = [
-    // { path : "", redirectTo: "/home", pathMatch: "full"},
-    // {path : "home", component: NavbarComponent},
-    // {path : "home", component: CarasoolComponent},
+    { path : "", redirectTo: "/home", pathMatch: "full"},
+    {path : "home", component: HomeComponent},
+     {path : "product-search", component: SearchPageComponent},
     // {path : "home", component: CardbodyComponent},
     // {path : "home", component: FooterComponent},
 ];
