@@ -1,74 +1,7 @@
-// .navbar-logo{
-//     max-height: 50px !important;
-//     max-width: 50px !important;
-   
-// }
-
-// .navbar-form.navbar-center {
-//     margin: auto;
-//     padding: 12px;
-// }
-
-// .navbar-form.navbar-center .input-group .form-control {
-//     min-width: 700px;
-//     min-height: 40px;
-//   }
-
-//   .navbar-nav > li{
-//     padding-left:30px;
-//     padding-right:30px;
-//   }
-
-//   .navbar-nav {
-//     margin-left:  auto;
-//   }
- 
-//   .nav-change{
-//     border-radius: 5px !important;
-//   }
-//   .nav-change :hover{
-//       background-color: black;
-//       color: aliceblue !important;
-//       border-radius: 5px;
-      
-//   }
-
-//   .border-color{
-//     color: white;
-//   }
-//   .border-color:hover{
-//     background-color: black;
-//     color: white;
-//     border-radius: 4px;
-//     padding: 7px;
-//   }
-
-//   .navbar-logo{
-//     border-radius: 100%;
-//   }
-
-// .collapse{
-//   display: flex;
-//   justify-content: space-between;
-  
-// }
-  
-// .background-color{
-//   background-color: #28965A;
-// }
-// .background-color1{
-//   background-color: #F3F9E3;
-// }
-
-// .click:click{
-//   background-color: black;
-// }
-// .Browse:hover{
-//    background-color: #50C878;
-// }
-
-.navbar .navbar-nav .nav-item a{
-    padding: 8px 20px 5px 5px;
+.nav-change{
+   display: flex;
+   margin-right: 20px;
+   justify-content: space-between;
 }
 
 .nav-change:hover {
@@ -86,7 +19,6 @@
 .search-box{
     flex: 1;
     position: relative;
-    background-color:rgb(248, 248, 248);
     border-radius: 5px;
     padding-left: 2%;
 }
@@ -94,27 +26,32 @@
     width: 100%;
     height: 40px;
     border: none;
-    //outline: none;
-   // background-color: rgb(248, 248, 248);
     border-radius: 8px;
-    //color: black;
     padding: 0px 40px 0px 5px;
 
 }
-.search-box input[type="text"]::placeholder {
-    color: #999;
+
+.search-box input[type="search"]{
+  padding: 2%;
 }
 .search-box button{
     cursor: pointer;
     width: 70px;
     height: 40px;
-    border-radius: 2px;
+    border: none;
     position: absolute;
     top: 0;
     right: 0;
     transform: scale(0.9);
 }
-
+.search-box button:hover{
+    background: #E7E9EB;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
 .bg-color-first{
     background-color: #28965A;
 }
+
+form.example button:hover {
+    background: #0b7dda;
+  }

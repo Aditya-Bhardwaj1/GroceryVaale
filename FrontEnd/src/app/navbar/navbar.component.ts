@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,38 +12,68 @@ export class NavbarComponent {
     console.log("workinggg");
    }
 
-  public searchText?:string;
+  public searchText:string="";
   productName:string="";
   productPrice:number=0;
 
-  constructor(private productService:ProductService){}
+  constructor(private productService:ProductService,private router:Router){}
 
   searchProduct(){
-    console.log("workingjahjhva")
-    if(this.searchText==null)
+    if(this.searchText=="")
+
     {
-      this.productService.setSearchDetails("",0);
-    }
-    else{
-      const splitArray= this.searchText.split(" ");
-      console.log(splitArray);
-      splitArray.forEach((val)=>{
-        if(!isNaN(Number(val)))
-        {
-          this.productPrice=Number(val);
-        }
-        if(isNaN(Number(val)))
-        {
-          this.productName=val;
-        }
-        console.log(val)
-      } )
+
+      console.log("here")
+
       this.productService.setSearchDetails(this.productName,this.productPrice);
+
+      this.router.navigate(["product-search"],{
+
+        queryParams:{name:"",price:0}
+
+      })
+
     }
 
-    console.log(this.searchText)
-    console.log(this.productPrice)
-    console.log(this.productName);
+    else{
+
+ 
+
+      const splitArray= this.searchText.valueOf().split(" ");
+
+      splitArray.forEach((val)=>{
+
+ 
+
+        if(!isNaN(Number(val)))
+
+        {
+
+          this.productPrice=Number(val);
+
+        }
+
+        if(isNaN(Number(val)))
+
+        {
+
+          this.productName=val;
+
+        }
+
+      } )
+
+      this.productService.setSearchDetails(this.productName,this.productPrice);
+
+      this.router.navigate(["product-search"]
+
+      ,{
+
+        queryParams:{name:this.productName,price:this.productPrice}
+
+      })
+
+    }
   }
    
 }

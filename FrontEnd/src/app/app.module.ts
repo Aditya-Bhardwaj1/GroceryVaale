@@ -11,6 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchPageComponent } from './product/search-page/search-page.component';
 import { AddCategoryComponent } from './category/add-category/add-category.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
   //{ path: '', component: NavbarComponent} // localhost:8000
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     CardbodyComponent,
     FooterComponent,
     SearchPageComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

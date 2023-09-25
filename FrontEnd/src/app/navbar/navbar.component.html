@@ -1,43 +1,37 @@
 <!-- navbar creation starts from here-->
 
 <!-- first navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-color-first">
+<nav class="navbar navbar-expand-lg navbar-light bg-color-first fixed-top ">
   <div class="container">
     <!-- brand name and logo-->
-    <a class="navbar-brand" href="#"><img class="navbar-logo" src="../../assets/Images/Navbar_logo.png" style="height: 50px; border-radius: 50%;"></a>
+    <a class="navbar-brand" href="#"><img class="navbar-logo" src="../../assets/Images/Navbar_logo.png"
+        style="height: 50px; border-radius: 50%;"></a>
     <a class="navbar-brand" href="#"><span class="text-warning"><b>Super</b></span><b>Mart</b></a>
 
-    <!-- toggle button-->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+    <!-- search bar-->
+    <form class="d-flex search-box" action="" (ngSubmit)="searchProduct()">
+      <input class="form-control ms-auto" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchText"  name="txtSearch">
+      <button class="btn" type="submit"><i class="bi bi-search"></i></button>
+    </form>
 
-      <!-- search bar-->
-      <form class="d-flex search-box" action="">
-        <input class="form-control ms-auto" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn border" (click)="c()" type="submit"><i class="bi bi-search"></i></button>
-      </form>
-      
-      <!-- contact us -->
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active mx-3 nav-change" href="#">Contact Us</a>
-        </li>
-      </ul>
-      
-    </div>
+    <!-- contact us -->
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active mx-3 nav-change" href="#">Contact Us</a>
+      </li>
+    </ul>
   </div>
 </nav>
 
 <!-- second navbar-->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-color-second">
+<nav class="navbar navbar-expand-lg navbar-light bg-color-second fixed-top" style="margin-top: 76px;">
   <div class="container">
     <!-- Browse category-->
-        <a class="btn btn-outline-light bg-dark text-white active glyphicon glyphicon-th-list" target="_self" aria-current="page" href="#categories">
-          <i class="bi bi-cart"></i> Browse Category
-        </a>
+    <a class="btn btn-outline-light bg-dark text-white active glyphicon glyphicon-th-list" target="_self"
+      aria-current="page" href="#categories">
+      <i class="bi bi-cart"></i> Browse Category
+    </a>
     <!-- Toggle button-->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,4 +56,3 @@
     </div>
   </div>
 </nav>
-
