@@ -6,7 +6,7 @@
 }
 
 body {
-	background: #f6f5f7;
+	//background: #f6f5f7;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -82,7 +82,7 @@ form {
 }
 
 input {
-	background-color: #eee;
+	//background-color: #eee;
 	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;
@@ -315,10 +315,14 @@ form {
 }
 form * {
   font-family: "Poppins", sans-serif;
-  color: #ffffff;
+ // color: #ffffff;
   letter-spacing: 0.5px;
   outline: none;
   border: none;
+}
+
+.btn-color{
+  color: white;
 }
 form h3 {
   font-size: 32px;

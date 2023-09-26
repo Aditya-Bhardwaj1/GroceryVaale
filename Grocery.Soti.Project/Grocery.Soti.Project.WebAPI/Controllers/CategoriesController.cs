@@ -36,6 +36,7 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
 
         [HttpPost]
         [Route("AddCategory")]
+        [Authorize(Roles = "admin")]
         public IHttpActionResult InsertCategory([FromBody] Category category)
         {
             var dt = _categories.InsertCategory(category.CategoryName, category.CategoryImage);

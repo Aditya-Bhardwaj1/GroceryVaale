@@ -72,6 +72,7 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
 
         [HttpPut]
         [Route("updateProduct/{productId}")]
+        [Authorize(Roles ="admin")]
         public IHttpActionResult UpdateProduct([FromUri] int productId, [FromBody] Product product)
         {
             var dt = _product.EditProduct(productId, product.ProductName, product.Description, product.UnitPrice, product.UnitsInStock, product.Discontinued, product.CategoryId, product.ProductImage);
@@ -85,25 +86,16 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         // add new product
 
         [HttpPost]
-
         [Route("addProduct")]
-
+       // [Authorize(Roles = "admin")]
         public IHttpActionResult addProduct([FromBody] Product p)
-
         {
-
             var product = _product.AddProduct(p);
-
             if (product)
-
             {
-
                 return Ok(product);
-
             }
-
             return BadRequest();
-
         }
 
     }

@@ -58,18 +58,18 @@ export class EditProductComponent implements OnInit{
     
   }
   onSubmit(product1?: Product){
-    this.submitted = true;
-    this.isSubmitted=true;
+    
     console.log(this.productForm)
     console.log(product1?.productId)
     if(this.productForm?.valid){
-      
+      this.submitted = true;
+      this.isSubmitted=true;
       this.sub$ = this.productService.updateProduct((product1?.productId!), this.productForm.value).subscribe({
-        next: (data) => {this.product = data},
+        next: (data) => {this.product = data;this.doReset();},
         error: (err) => {console.error(err)}
       })
     }
-    this.doReset();
+    
 
     
   }
