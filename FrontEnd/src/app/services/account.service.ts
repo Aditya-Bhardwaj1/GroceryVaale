@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders,HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
 
@@ -8,7 +8,9 @@ import { User } from '../models/user.model';
 })
 export class AccountService {
    private user!: User;
-   private baseUrl = "https://localhost:44349/api/Register";
+  //  private baseUrl = "https://localhost:44349";
+  private baseUrl = "http://localhost:34567";
+
    private authHeaders = HttpHeaders ;
   // private baseUrl = "http://localhost:55736/api";
   constructor(private http: HttpClient) {
@@ -27,16 +29,28 @@ export class AccountService {
     this.user.EmailId = EmailId;
     this.user.Password = Password;
     console.log("User is ", this.user);
-    return this.http.post(`${this.baseUrl}/Register`, this.user);
+    return this.http.post(`${this.baseUrl}/api/soti/user/Register`, this.user);
   }
 
-  Login(EmailId : string, Password : string){
-    this.user = new User();
-    this.user.EmailId = EmailId;
-    this.user.Password = Password;
-    console.log(this.user);
+  // Login(EmailId : string, Password : string){
+  //   this.user = new User();
+  //   this.user.EmailId = EmailId;
+  //   this.user.Password = Password;
+  //   console.log(this.user);
     
-    return this.http.post(`${this.baseUrl}/Login`, this.user);
+  //   return this.http.post(`${this.baseUrl}/login`, this.user);
 
+  // }
+  Login(EmailId: string, Password: string): Observable<any> {
+    const body = new HttpParams()
+      .set('username', EmailId)
+      .set('password', Password)
+      .set('grant_type', 'password');
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    });
+
+    return this.http.post(`${this.baseUrl}/login`, body.toString(), { headers });
   }
 }
