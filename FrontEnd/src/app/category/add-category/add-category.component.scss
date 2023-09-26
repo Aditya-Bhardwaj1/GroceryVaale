@@ -1,17 +1,87 @@
 .custom-input{
+
     //border: none;
+
     border: 1px solid green;
+
     border-radius: 10px;
+
+}
+
+ 
+
+ 
+
+ 
+
+// name light ly
+
+input{
+
+    margin-top: 5px;
+
 }
 
 .custom-card{
+
     border: none;
-    background-image: url("https://images.unsplash.com/photo-1617713964959-d9a36bbc7b52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Z3JvY2VyeSUyMHByb2R1Y3RzJTIwd2hpdGUlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+
+    padding: 10px;
+
+   // background-image: url("https://images.unsplash.com/photo-1617713964959-d9a36bbc7b52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Z3JvY2VyeSUyMHByb2R1Y3RzJTIwd2hpdGUlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60");
+
+   // background-size: cover;
+
+   // background-position: center;
+
+    //background-repeat: no-repeat;
+
+   width: 35%;
+
+   
+
 }
 
-.custom-form{
-    border: none;
+.custom-card:hover{
+
+    box-shadow: 1px 1px 6px #28965A;
+
 }
+
+.add-category-imgage-container{
+
+    width: 40%;
+
+    img{
+
+        width: 100%;
+
+    }
+
+}
+
+ 
+
+.custom-form{
+
+    border: none;
+
+}
+
+ 
+
+.my-container{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+ 
+
+}
+
+ 

@@ -1,0 +1,30 @@
+<div class="container-fluid product-detail-container">
+    <div class="container ">
+        <div class="box"  >
+            <div class="product__img">
+                <img src="{{product.productImage}}" class="product_img" alt="">
+            </div>
+
+            <div class="product__disc">
+                <div class="product__disc--content">
+                    <div class="disc__content--about">
+                        <h1>{{product.productName}}</h1>
+
+                        <!-- Price  -->
+                        <span>RS. {{product.unitPrice}} </span>
+
+                        <!-- Description  -->
+                        <p class="productInformation">{{product.description}}</p>
+                    </div>
+
+                    
+                </div>
+            </div>
+
+            <div class="product_buttons">
+                <button class="btn wishlist">Add To Cart </button>
+                <button class="btn buy" (click)="navigateToEditDetails(product.productId)">Edit Details</button>
+            </div>
+        </div>
+    </div>
+</div>

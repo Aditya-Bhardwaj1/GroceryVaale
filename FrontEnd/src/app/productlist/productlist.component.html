@@ -1,0 +1,17 @@
+<div class="container addcategory">
+  <button class="btn btn-success" routerLink="/add-product"><i class="bi bi-plus"></i>Add Product</button>
+</div>
+<div class="container products-container">
+    <div class="card mt-5" *ngFor="let item of products" (click)="productDetails(item)">
+      <img src="{{item.productImage}}" class="card-img-top card-img-size center" alt="..." >
+      <div class="card-body">
+        <h5 class="card-title text-center">{{item.productName}}</h5>
+        <p class="card-text mb-2">Some quick example text to build on </p>
+        <div class="price-cart-container">
+          <h6>Rs. {{item.unitPrice}}</h6>
+          <a href="#" class="btn btn-success cart-btn mb-2">Add to Cart</a>
+        </div>
+        
+      </div>
+    </div>
+  </div>

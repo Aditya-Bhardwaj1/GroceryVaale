@@ -11,26 +11,38 @@ import { ProductService } from 'src/app/services/product.service';
 export class SearchPageComponent implements OnInit, OnDestroy {
   private subscription?: Subscription;
   productList: Product[] = [];
-
-  constructor(private productService: ProductService) {}
+  searchText?: string;
+  constructor(private productService: ProductService) { }
   ngOnDestroy(): void {
     console.log(this.productList);
 
     this.subscription?.unsubscribe();
   }
   ngOnInit(): void {
+
+    this.search();
+
+  }
+  search(): void {
+    console.log("search")
+    this.searchText = this.productService.getSearchedText();
     this.subscription = this.productService.getSearchedProducts().subscribe({
       next: (data) => {
+
         this.productList = data;
+
+        console.log()
+
       },
+
       error: (err) => {
+
         console.error(err);
+
       },
+
     });
-    console.log(this.productList);
-    for (let i = 0; i < this.productList.length; i++) {
-      const product = this.productList[i];
-      console.log(product);
-    }
+
   }
+
 }

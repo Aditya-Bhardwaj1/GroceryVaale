@@ -57,5 +57,53 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
             return Ok(searchProduct);
         }
 
+        [HttpGet]
+        [Route("AllProducts")]
+        public IHttpActionResult GetProducts()
+        {
+            var dt = _product.GetAllProducts();
+            if (dt == null)
+            {
+                return BadRequest();
+            }
+            return Ok(dt);
+        }
+
+        [HttpPut]
+        [Route("updateProduct/{productId}")]
+        public IHttpActionResult UpdateProduct([FromUri] int productId, [FromBody] Product product)
+        {
+            var dt = _product.EditProduct(productId, product.ProductName, product.Description, product.UnitPrice, product.UnitsInStock, product.Discontinued, product.CategoryId, product.ProductImage);
+            if (!dt)
+            {
+                return BadRequest();
+            }
+            return Ok(dt);
+        }
+
+        // add new product
+
+        [HttpPost]
+
+        [Route("addProduct")]
+
+        public IHttpActionResult addProduct([FromBody] Product p)
+
+        {
+
+            var product = _product.AddProduct(p);
+
+            if (product)
+
+            {
+
+                return Ok(product);
+
+            }
+
+            return BadRequest();
+
+        }
+
     }
 }

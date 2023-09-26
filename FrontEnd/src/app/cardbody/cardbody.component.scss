@@ -1,10 +1,8 @@
 .card-ay {
     transition: all 0.3s;
-    // width: 15rem;
     height: 15rem;
     margin-bottom: 2rem;
 }
-
 .card-ay:hover {
     transform: scale(1.15);
     background-color: green;
@@ -19,16 +17,17 @@
     margin-top: 50px;
 
 }
-// .listProducts{
-
-//     width: 20%;
-// }
 .para {
     color: black;
     font-size: 15px;
     margin-top: 1%;
 }
-
+.addcategory{
+    text-align: right;
+    margin-top: -3.5%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
 .products-container {
     text-align: center;
     display: flex;

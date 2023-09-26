@@ -9,7 +9,7 @@ productId?: number;
     
         unitsInStock?:number;
     
-        dicontinued?:boolean;
+        discontinued?:boolean;
     
         categoryId?:number;
     
