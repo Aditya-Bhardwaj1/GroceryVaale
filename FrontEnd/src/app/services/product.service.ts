@@ -61,4 +61,9 @@ getSearchedText():string{
     return this.searchText!;
 
   }
+
+  // add new product
+  addProduct(product: Product): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/addProduct`, product);
+  }
 }

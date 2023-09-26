@@ -20,6 +20,7 @@ import { RegisterComponent } from './register/register.component';
 import { DatePipe } from '@angular/common';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 const appRoutes: Routes = [
   //{ path: '', component: NavbarComponent} // localhost:8000
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     ProductDetailsComponent,
-    EditProductComponent
+    EditProductComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
