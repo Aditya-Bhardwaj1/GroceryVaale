@@ -9,7 +9,7 @@
     </h2>
   </div>
 
-  <div class="container addcategory">
+  <div class="container addcategory" *ngIf="roles=='admin'" >
     <button class="btn btn-success" routerLink="/add-category"><i class="bi bi-plus"></i>Add Category</button>
   </div>
   <div class="container card-size">
@@ -28,7 +28,7 @@
     </div>
   </div>
   <div class="container products-container" id="listProducts">
-    <div class="card card-ad mt-5" *ngFor="let item of products">
+    <div class="card card-ad mt-5" *ngFor="let item of products" (click)="productDetails(item)">
       <img src="{{item.productImage}}" class="card-img-top card-img-size center" alt="...">
       <div class="card-body">
         <h5 class="card-title text-center">{{item.productName}}</h5>

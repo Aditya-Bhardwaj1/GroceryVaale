@@ -19,6 +19,7 @@ namespace Grocery.Soti.Project.WebAPI
             container.RegisterType<IProduct, ProductDetails>();
             container.RegisterType<ICategory, CategoryDetails>();
             container.RegisterType<IUser, RegisterUserService>();
+            container.RegisterType<IAccount, UserDetails>();
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

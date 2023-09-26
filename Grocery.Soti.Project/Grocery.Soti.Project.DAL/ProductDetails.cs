@@ -59,7 +59,7 @@ namespace Grocery.Soti.Project.DAL
                         Regex regex = new Regex("");
                         if (productName != null)
                         {
-                            regex = new Regex(productName.Trim());
+                            regex = new Regex(productName.Trim().ToLower());
 
                         }
                         if (productPrice == null)
@@ -80,7 +80,7 @@ namespace Grocery.Soti.Project.DAL
                             Discontinued = Convert.ToBoolean(x.Field<bool>("Discontinued")),
                             CategoryId = Convert.ToInt32(x.Field<int>("CategoryId")),
                             ProductImage = Convert.ToString(x.Field<string>("ProductImage"))
-                        }).Where(p => (regex.IsMatch(p.ProductName)) && p.UnitPrice > productPrice).ToList();
+                        }).Where(p => ((regex.IsMatch(p.ProductName) || regex.IsMatch(p.ProductName.ToLower())) && p.UnitPrice > productPrice)).ToList();
                     }
                 }
             }
@@ -101,11 +101,13 @@ namespace Grocery.Soti.Project.DAL
                         var product = _dataset.Tables["Products"].AsEnumerable()
                                      .Select(x => new Product
                                      {
+                                         ProductId=x.Field<int>("ProductId"),
                                          ProductName = x.Field<string>("ProductName"),
                                          Description = x.Field<string>("Description"),
                                          UnitPrice = x.Field<decimal>("UnitPrice"),
                                          UnitsInStock = x.Field<int>("UnitsInStock"),
                                          CategoryId = x.Field<int>("CategoryId"),
+                                         ProductImage = x.Field<string>("ProductImage")
                                      }).Where(x => x.CategoryId == categoryId).ToList();
 
                         return product;
@@ -185,6 +187,32 @@ namespace Grocery.Soti.Project.DAL
 
                 }
 
+            }
+        }
+
+
+        // add new product
+        public bool AddProduct(Product product)
+        {
+            using (_connection = new SqlConnection(SqlConnectionString.GetConnectionString))
+            {
+                using (_command = new SqlCommand("usp_AddProduct", _connection))
+                {
+                    _command.CommandType = System.Data.CommandType.StoredProcedure;
+                    _command.Parameters.AddWithValue("@ProductName", product.ProductName);
+                    _command.Parameters.AddWithValue("@Description", product.Description);
+                    _command.Parameters.AddWithValue("@UnitPrice", product.UnitPrice);
+                    _command.Parameters.AddWithValue("@UnitsInStock", product.UnitsInStock);
+                    _command.Parameters.AddWithValue("@Discontinued", product.Discontinued);
+                    _command.Parameters.AddWithValue("@CategoryId", product.CategoryId);
+                    _command.Parameters.AddWithValue("@ProductImage", product.ProductImage);
+                    if (_connection.State == ConnectionState.Closed)
+                    {
+                        _connection.Open();
+                    }
+                      var result1 = _command.ExecuteNonQuery();
+                    return result1 > 0;
+                }
             }
         }
     }

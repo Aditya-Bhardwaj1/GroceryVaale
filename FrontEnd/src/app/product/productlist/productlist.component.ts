@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Product } from '../models/product.model';
+import { Product } from '../../models/product.model';
 import { Subscription } from 'rxjs';
-import { ProductService } from '../services/product.service';
+import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class ProductlistComponent implements OnInit, OnDestroy {
   products: Product[] =[];
   sub$?: Subscription;
+  roles?:string;
 
   constructor(private productService: ProductService,private router:Router) { }
    ngOnInit(): void {
@@ -19,6 +20,9 @@ export class ProductlistComponent implements OnInit, OnDestroy {
       next: (data) => {this.products = data},
       error: (err) => {console.error(err)}
     })
+    if(sessionStorage.getItem("role")){
+      this.roles=sessionStorage.getItem("role")?.toString();
+    }
    }
    ngOnDestroy(): void {
      this.sub$?.unsubscribe();

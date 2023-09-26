@@ -85,5 +85,29 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
             return Ok(dt);
         }
 
+        // add new product
+
+        [HttpPost]
+
+        [Route("addProduct")]
+
+        public IHttpActionResult addProduct([FromBody] Product p)
+
+        {
+
+            var product = _product.AddProduct(p);
+
+            if (product)
+
+            {
+
+                return Ok(product);
+
+            }
+
+            return BadRequest();
+
+        }
+
     }
 }

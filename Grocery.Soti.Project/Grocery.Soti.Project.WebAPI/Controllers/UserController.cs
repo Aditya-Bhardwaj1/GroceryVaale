@@ -15,9 +15,11 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
     public class UserController : ApiController
     {
         private readonly IUser _user = null;
-        public UserController(IUser user)
+        private readonly IAccount _account = null;
+        public UserController(IUser user,IAccount account)
         {
             _user = user;
+            _account = account;
         }
 
         //[HttpPost]
@@ -32,6 +34,18 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         //    //return Ok(dt);
         //    return StatusCode(HttpStatusCode.Created);
         //}
+
+        [HttpGet]
+        [Route("getUser")]
+        public IHttpActionResult getUserRole([FromUri] string userEmail)
+        {
+            string role=_account.getUserRole(userEmail);
+            if(role!=null)
+            {
+                return Ok(role);
+            }
+            return BadRequest();
+        }
 
         [HttpPost]
         [Route("Register")]

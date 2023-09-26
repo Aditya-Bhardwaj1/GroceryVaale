@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AccountService } from '../services/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,13 +15,17 @@ export class LoginComponent implements OnInit,OnDestroy {
   sub$?: Subscription;
   submitted: boolean = false;
   emailRegex: string = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
-  constructor(private accService: AccountService, private fb: FormBuilder) { }
+  constructor(private accService: AccountService, private fb: FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
     this.LoginForm = this.fb.group({    
       emailId: [null, [Validators.required, Validators.pattern(this.emailRegex)]],
       password: [null, [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
     });
+    if(sessionStorage.getItem("token"))
+    {
+      this.router.navigateByUrl("/home")
+    }
   }
 
   getControl(key: string): AbstractControl {
@@ -43,7 +48,9 @@ export class LoginComponent implements OnInit,OnDestroy {
       ).subscribe({
         next: (data) => {
           console.log(data);
-         // sessionStorage.setItem("token", data.access_token);
+          sessionStorage.setItem("token", data.access_token);
+          window.location.reload();
+          
         },
         error: (err) => {
           console.error(err.status);

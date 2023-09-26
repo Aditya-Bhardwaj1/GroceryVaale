@@ -23,7 +23,7 @@
 
             <div class="product_buttons">
                 <button class="btn wishlist">Add To Cart </button>
-                <button class="btn buy" (click)="navigateToEditDetails(product.productId)">Edit Details</button>
+                <button class="btn buy" *ngIf="roles=='admin'" (click)="navigateToEditDetails(product.productId)">Edit Details</button>
             </div>
         </div>
     </div>

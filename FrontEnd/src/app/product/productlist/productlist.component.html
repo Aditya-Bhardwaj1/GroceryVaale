@@ -18,6 +18,9 @@
         </div>
     </div>
 </div> -->
+<div class="container addcategory" *ngIf="roles=='admin'" >
+  <button class="btn btn-success" routerLink="/add-product"><i class="bi bi-plus"></i>Add Product</button>
+</div>
 
 <div class="container products-container">
     <div class="card mt-5" *ngFor="let item of products" (click)="productDetails(item)" >

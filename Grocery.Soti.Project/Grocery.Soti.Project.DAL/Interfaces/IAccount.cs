@@ -10,5 +10,7 @@ namespace Grocery.Soti.Project.DAL.Interfaces
     public interface IAccount
     {
         Task<User> ValidateUserAsync(string emailId, string Password);
+
+        string getUserRole(string userEmail);
     }
 }

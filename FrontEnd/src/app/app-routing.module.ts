@@ -8,12 +8,15 @@ import { HomeComponent } from './home/home.component';
 import { SearchPageComponent } from './product/search-page/search-page.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
-import { ProductlistComponent } from './productlist/productlist.component';
+import { ProductlistComponent } from './product/productlist/productlist.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { EditProductComponent } from './edit-product/edit-product.component';
+import { ProductDetailsComponent } from './product/product-details/product-details.component';
+import { EditProductComponent } from './product/edit-product/edit-product.component';
 import { AddCategoryComponent } from './category/add-category/add-category.component';
+import { AddProductComponent } from './product/add-product/add-product.component';
+import { AuthGuard } from './services/auth.guard';
+import { AuthGuard1 } from './services/adminauth.guard';
 const routes: Routes = [
     { path : "", redirectTo: "/home", pathMatch: "full"},
     {path : "home", component: HomeComponent},
@@ -24,9 +27,10 @@ const routes: Routes = [
     {path : "allproducts", component: ProductlistComponent},
     {path : "login", component: LoginComponent},
     {path : "register", component: RegisterComponent},
-    {path: "product-details/:productId", component: ProductDetailsComponent},
-    {path: "edit-details/:productId", component: EditProductComponent},
-    {path: "add-category", component: AddCategoryComponent},
+    {path: "product-details/:productId", component: ProductDetailsComponent,canActivate: [AuthGuard] },
+    {path: "edit-details/:productId", component: EditProductComponent, canActivate: [AuthGuard,AuthGuard1]},
+    {path: "add-category", component: AddCategoryComponent,canActivate: [AuthGuard,AuthGuard1]},
+    {path: "add-product", component: AddProductComponent,canActivate: [AuthGuard,AuthGuard1]},
 ];
 
 @NgModule({

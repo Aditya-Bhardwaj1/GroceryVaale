@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Product } from '../models/product.model';
+import { Product } from '../../models/product.model';
 import { Subscription } from 'rxjs';
-import { ProductService } from '../services/product.service';
-import { Category } from '../models/category.model';
-import { CategoryService } from '../services/category.service';
+import { ProductService } from '../../services/product.service';
+import { Category } from '../../models/category.model';
+import { CategoryService } from '../../services/category.service';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-edit-product',
@@ -58,18 +58,19 @@ export class EditProductComponent implements OnInit{
     
   }
   onSubmit(product1?: Product){
-    this.submitted = true;
-    this.isSubmitted=true;
+    
     console.log(this.productForm)
     console.log(product1?.productId)
     if(this.productForm?.valid){
-      
+      this.submitted = true;
+     this.isSubmitted=true;
       this.sub$ = this.productService.updateProduct((product1?.productId!), this.productForm.value).subscribe({
-        next: (data) => {this.product = data},
+        next: (data) => {this.product = data; this.doReset();},
         error: (err) => {console.error(err)}
       })
     }
-    this.doReset();
+    
+   
 
     
   }

@@ -10,6 +10,8 @@ export class AccountService {
    private user!: User;
   //  private baseUrl = "https://localhost:44349";
   private baseUrl = "http://localhost:34567";
+  isAuthenticated:boolean=false;
+  role:string="";
 
    private authHeaders = HttpHeaders ;
   // private baseUrl = "http://localhost:55736/api";
@@ -50,7 +52,23 @@ export class AccountService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'
     });
+    
+    ; 
+    this.http.post(`${this.baseUrl}/login`, body.toString(), { headers }).subscribe({
+      next:(data)=>{
+        this.http.get(this.baseUrl+"/api/soti/user/getUser", {params:{"userEmail":EmailId}} )
+      .subscribe({
+      next:(data)=>{this.role=data.toString();
+        console.log(data.toString(),"kajgdka")
+      sessionStorage.setItem("role",data.toString())},
+      error:(err)=>{
+        console.log("kajgdka")
 
+        console.log(err)}
+      }) 
+      },
+      error:(err)=>{console.log(err)}
+    })
     return this.http.post(`${this.baseUrl}/login`, body.toString(), { headers });
   }
 }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2 } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+  isLogin:boolean = false;
   c() {
     console.log("workinggg");
   }
@@ -16,6 +17,16 @@ export class NavbarComponent {
   productName: string = "";
   productPrice: number = 0;
   constructor(private productService: ProductService, private router: Router) { }
+  ngOnInit(): void {
+    if(sessionStorage.getItem("token")){
+      this.isLogin=true;
+      
+    }
+  }
+  logout(){
+    sessionStorage.clear();
+    this.isLogin=false;
+  }
   changeFun() {
     this.router.navigate(["navbar"])
   }

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Product } from '../models/product.model';
-import { ProductService } from '../services/product.service';
+import { Product } from '../../models/product.model';
+import { ProductService } from '../../services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProductDetailsComponent implements OnInit, OnDestroy {
   product!: Product;
   sub$?: Subscription;
-
+  roles?: string;
   constructor(private productService: ProductService, private router: Router,private activatedRoute:ActivatedRoute) { }
 
   
@@ -22,6 +22,10 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       next: (data) => {this.product = data;},
       error: (err) => {console.error(err)}
     })
+    if(sessionStorage.getItem("role")){
+      this.roles=sessionStorage.getItem("role")?.toString();
+    }
+    
    }
 
    navigateToEditDetails(productId?: number) {

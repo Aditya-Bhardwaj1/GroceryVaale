@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,17 @@ export class ProductService {
   public productName?:string;
   public productPrice?:number;
   searchText?:string;
-  constructor(private http: HttpClient) { }
+  private authHeader!: HttpHeaders;
+  constructor(private http: HttpClient) { 
+    let authorizeData = 'Bearer ' + sessionStorage.getItem("token");
+
+    console.log(authorizeData);
+
+    this.authHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': authorizeData
+    })
+  }
 
   getProductsByCategoryId(categoryId: number):Observable<Product[]>{
     return this.http.get<Product[]>(`${this.baseUrl}/getProductByCategoryId/${categoryId}`)
@@ -23,7 +33,7 @@ export class ProductService {
   .set('productName',this.productName!)
   .set('productPrice',this.productPrice!);
     return this.http.get<Product[]>(this.baseUrl+'/getSearchedProducts',{params} );
-  
+    
   }
 
   setSearchDetails( searchText:string,productName:string ,productPrice:number):void{
@@ -41,15 +51,18 @@ export class ProductService {
   }
 
   getProductsById(productId: number):Observable<Product>{
-    return this.http.get<Product>(`${this.baseUrl}/getProductById/${productId}`)
+    return this.http.get<Product>(`${this.baseUrl}/getProductById/${productId}`, { headers: this.authHeader })
   }
 
   updateProduct(productId: number, product:Product):Observable<Product>{
-    return this.http.put<Product>(`${this.baseUrl}/updateProduct/${productId}`,product)
+    return this.http.put<Product>(`${this.baseUrl}/updateProduct/${productId}`,product, { headers: this.authHeader })
   }
 
+  addProduct(product: Product): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/addProduct`, product);
+  }
 
-getSearchedText():string{
+  getSearchedText():string{
 
     if(this.searchText==null)
     {
