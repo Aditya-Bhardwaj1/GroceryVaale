@@ -57,5 +57,17 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
             return Ok(searchProduct);
         }
 
+        [HttpGet]
+        [Route("AllProducts")]
+        public IHttpActionResult GetProducts()
+        {
+            var dt = _product.GetAllProducts();
+            if (dt == null)
+            {
+                return BadRequest();
+            }
+            return Ok(dt);
+        }
+
     }
 }

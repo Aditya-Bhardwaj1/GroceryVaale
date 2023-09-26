@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Router } from '@angular/router';
 
@@ -8,72 +8,61 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-   c(){
+  c() {
     console.log("workinggg");
-   }
+  }
 
-  public searchText:string="";
-  productName:string="";
-  productPrice:number=0;
+  public searchText: string = "";
+  productName: string = "";
+  productPrice: number = 0;
+  constructor(private productService: ProductService, private router: Router) { }
+  changeFun() {
+    this.router.navigate(["navbar"])
+  }
+  searchProduct() {
+    this.productName = ""
 
-  constructor(private productService:ProductService,private router:Router){}
+    this.productPrice = 0;
 
-  searchProduct(){
-    if(this.searchText=="")
+    if (this.searchText == "") {
 
-    {
+      this.productService.setSearchDetails(this.searchText, this.productName, this.productPrice);
 
-      console.log("here")
+      this.router.navigate(["product-search"], {
 
-      this.productService.setSearchDetails(this.productName,this.productPrice);
-
-      this.router.navigate(["product-search"],{
-
-        queryParams:{name:"",price:0}
+        queryParams: { name: "", price: 0 }
 
       })
 
     }
 
-    else{
+    else {
 
- 
 
-      const splitArray= this.searchText.valueOf().split(" ");
 
-      splitArray.forEach((val)=>{
+      const splitArray = this.searchText.valueOf().split(" ");
 
- 
+      console.log(splitArray)
 
-        if(!isNaN(Number(val)))
+      splitArray.forEach((val) => {
 
-        {
 
-          this.productPrice=Number(val);
 
-        }
+        if (!isNaN(Number(val))) {
 
-        if(isNaN(Number(val)))
-
-        {
-
-          this.productName=val;
+          this.productPrice = Number(val);
 
         }
 
-      } )
+        if (isNaN(Number(val))) {
 
-      this.productService.setSearchDetails(this.productName,this.productPrice);
-
-      this.router.navigate(["product-search"]
-
-      ,{
-
-        queryParams:{name:this.productName,price:this.productPrice}
-
+          this.productName = val;
+        }
       })
-
+      this.productService.setSearchDetails(this.searchText, this.productName, this.productPrice);
+      this.router.navigate(["product-search"], {
+        queryParams: { name: this.productName, price: this.productPrice }
+      })
     }
   }
-   
 }

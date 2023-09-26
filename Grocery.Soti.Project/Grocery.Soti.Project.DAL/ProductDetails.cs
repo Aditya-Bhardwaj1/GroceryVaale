@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace Grocery.Soti.Project.DAL
         private SqlConnection _connection = null;
         private SqlDataAdapter _adapter = null;
         private DataSet _dataset = null;
+        private SqlCommand _command = null;
+        private SqlDataReader _reader = null;
 
         public Product GetProductById(int productId)
         {
@@ -111,6 +114,44 @@ namespace Grocery.Soti.Project.DAL
 
             }
 
+        }
+
+        public List<Product> GetAllProducts()
+        {
+            List<Product> products = new List<Product>();
+            using (_connection = new SqlConnection(SqlConnectionString.GetConnectionString))
+            {
+                using (_command = new SqlCommand("Select * from Products", _connection))
+                {
+                    if (_connection.State != ConnectionState.Open)
+                    {
+                        _connection.Open();
+                    }
+                    using (_reader = _command.ExecuteReader())
+                    {
+                        if (_reader.HasRows)
+                        {
+                            while (_reader.Read())
+                            {
+                                products.Add(new Product
+                                {
+                                    ProductId = Convert.ToInt32(_reader.GetValue(0)),
+                                    ProductName = _reader.GetValue(1).ToString(),
+                                    Description = _reader.GetValue(2).ToString(),
+                                    UnitPrice = Convert.ToDecimal(_reader.GetValue(3)),
+                                    UnitsInStock = Convert.ToInt32(_reader.GetValue(4)),
+                                    Discontinued = Convert.ToBoolean(_reader.GetValue(5)),
+                                    CategoryId = Convert.ToInt32(_reader.GetValue(6)),
+                                    CreatedDate = Convert.ToDateTime(_reader.GetValue(7)),
+                                    // ModifiedDate=Convert.ToDateTime(_reader?.GetValue(8)),
+                                    ProductImage = _reader.GetValue(9).ToString()
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            return products;
         }
     }
 }

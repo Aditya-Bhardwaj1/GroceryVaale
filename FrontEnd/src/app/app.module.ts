@@ -12,6 +12,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { SearchPageComponent } from './product/search-page/search-page.component';
 import { AddCategoryComponent } from './category/add-category/add-category.component';
 import { HomeComponent } from './home/home.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { ProductlistComponent } from './productlist/productlist.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { DatePipe } from '@angular/common';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 const appRoutes: Routes = [
   //{ path: '', component: NavbarComponent} // localhost:8000
@@ -28,7 +36,14 @@ const appRoutes: Routes = [
     FooterComponent,
     SearchPageComponent,
     AddCategoryComponent,
-    HomeComponent
+    HomeComponent,
+    AboutusComponent,
+    ContactusComponent,
+    ProductlistComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProductDetailsComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +52,8 @@ const appRoutes: Routes = [
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
