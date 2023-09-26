@@ -20,6 +20,7 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
             _product = product;
         }
         [HttpGet]
+        [Authorize]
         [Route("getProductById/{productId}")]
         public IHttpActionResult getProductById([FromUri] int productId)
         {
@@ -45,6 +46,7 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
 
         [HttpGet]
 
+        
         [Route("getProductByCategoryId/{CategoryId}")]
         public IHttpActionResult ListProducts([FromUri] int CategoryId)
         {
@@ -58,6 +60,7 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("AllProducts")]
         public IHttpActionResult GetProducts()
         {
@@ -70,6 +73,7 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "admin")]
         [Route("updateProduct/{productId}")]
         public IHttpActionResult UpdateProduct([FromUri] int productId, [FromBody] Product product)
         {
