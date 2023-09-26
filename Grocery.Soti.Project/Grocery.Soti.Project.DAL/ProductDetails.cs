@@ -18,6 +18,7 @@ namespace Grocery.Soti.Project.DAL
         private SqlDataAdapter _adapter = null;
         private DataSet _dataset = null;
         private SqlCommand _command = null;
+        private DataTable _dt = null;
         private SqlDataReader _reader = null;
 
         public Product GetProductById(int productId)
@@ -152,6 +153,39 @@ namespace Grocery.Soti.Project.DAL
                 }
             }
             return products;
+        }
+
+
+
+        public bool EditProduct(int productId, string productName, string description, decimal unitPrice, int unitInStock, bool discontinued, int categoryId, string productImageUrl)
+        {
+            using (_connection = new SqlConnection(SqlConnectionString.GetConnectionString))
+            {
+                using (_adapter = new SqlDataAdapter("usp_UpdateProduct", _connection))
+                {
+                    _adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    _adapter.SelectCommand.Parameters.AddWithValue("@ProductId", productId);
+                    _adapter.SelectCommand.Parameters.AddWithValue("@ProductName", productName);
+                    _adapter.SelectCommand.Parameters.AddWithValue("@Description", description);
+                    _adapter.SelectCommand.Parameters.AddWithValue("@UnitPrice", unitPrice);
+                    _adapter.SelectCommand.Parameters.AddWithValue("@UnitInStock", unitInStock);
+                    _adapter.SelectCommand.Parameters.AddWithValue("@Discontinued", discontinued);
+                    _adapter.SelectCommand.Parameters.AddWithValue("@CategoryId", categoryId);
+                    _adapter.SelectCommand.Parameters.AddWithValue("@ProductImage", productImageUrl);
+
+
+                    SqlParameter param = new SqlParameter("@return", SqlDbType.Int);
+                    param.Direction = ParameterDirection.ReturnValue;
+                    _adapter.SelectCommand.Parameters.Add(param);
+                    using (_dt = new DataTable())
+                    {
+                        _adapter.Fill(_dt);
+                        return Convert.ToInt32(param.Value) > 0;
+                    }
+
+                }
+
+            }
         }
     }
 }

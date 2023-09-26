@@ -42,7 +42,7 @@ export class EditProductComponent implements OnInit{
       // confirmPassword: [null,[Validators.required, Validators.minLength(8)]],
     }
     );
-    const producId = this.route.snapshot.paramMap.get('id');
+    const producId = this.route.snapshot.paramMap.get('productId');
     this.sub2$ = this.categoryService.getCategories().subscribe({
       next: (data)=>{this.categories=data; console.log(data)},
       error: (err) => {console.error(err)}
@@ -50,7 +50,7 @@ export class EditProductComponent implements OnInit{
 
     if (producId !== null)
     this.sub$ = this.productService.getProductsById(+producId).subscribe({
-      next: (data) => {this.product = data; console.log(data);  this.productForm.patchValue(data); this.productForm.get("discontinuedd")?.patchValue(data.dicontinued)},
+      next: (data) => {this.product = data; console.log(data);  this.productForm.patchValue(data); this.productForm.get("discontinuedd")?.patchValue(data.discontinued)},
       error: (err) => {console.error(err)}
     })
     
