@@ -1,51 +1,95 @@
-.card-header{
+// .addForm{
 
-    background-color:#28965A;
+//   background-color: #c3eed6;
 
-    color: white;
+//   color: white;
+
+// }
+
+.heading{
+
+  color: #28965A;
 
 }
 
- 
 
-  input,
 
-  textarea,
+// input,
 
-  select {
+// textarea,
 
-    width: 100%;
+// select {
 
-    padding: 10px;
+//   width: 100%;
 
-    border: 1px solid #ccc;
+//   padding: 10px;
 
-    border-radius: 5px;
+//   border: 1px solid #ccc;
 
-  }
+//   border-radius: 5px;
 
- 
+// }
 
-  .h1{
 
-    font-style: italic;
 
-  }
+input:hover{
 
- 
+  border: 1px solid #28965A;
 
-  .btn-success{
+}
 
-    background-color:#28965A;
 
-    color: white;
 
-    border: 1px solid #ccc;
+select:hover{
 
-  }
+  border: 1px solid #28965A;
 
- 
+}
 
-  .btn-success:hover{
-    border: 1px solid #ccc;
-  }
+
+
+.addImg{
+
+  background-image: url('../../assets/Images/add-product-image.jpg');
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  background-size: cover;
+
+}
+
+
+
+// .h1{
+
+//   color: #28965A;
+
+//   font-style: italic;
+
+// }
+
+
+
+.btn-success{
+
+  background-color: #28965A;
+
+  color: white;
+
+  border: 1px solid #ccc;
+
+}
+
+
+
+.btn-success:hover{
+
+  color: #28965A;
+
+  background-color: white;
+
+  border: 1px solid #ccc;
+
+}

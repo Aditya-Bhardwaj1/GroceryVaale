@@ -35,13 +35,12 @@
     justify-content: space;
     flex-wrap: wrap;
 }
-
 .card-img-size {
-    height: 140px;
-    display: block;
+    height: 100px;
+    width: 100px;
+    padding-top: 10%;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
     border-radius: 15px;
 }
 

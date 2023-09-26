@@ -41,6 +41,11 @@ export class AddProductComponent {
   product?: Product;
 
   categories?: Category[] = [];
+  imagePath:string="../../assets/Images/"
+  imgString:string=""
+  file: File | null = null;
+
+
 
  
 
@@ -91,6 +96,9 @@ export class AddProductComponent {
   }
 
  
+  onSelectingImage(event: any) {
+    this.file = event.target.files[0];
+  }
 
   onSubmit() {
 
@@ -112,8 +120,13 @@ export class AddProductComponent {
 
     this.product.categoryId = this.f['categoryId'].value;
 
-    this.product.productImage = this.f['productImage'].value;
+    
 
+    this.imgString=(this.f['productImage'].value).toString()
+     const splitArray = this.imgString.split('\\');
+     this.imagePath+=splitArray[splitArray.length-1]
+
+     this.product.productImage = this.imagePath;
  
 
     console.log(this.product);

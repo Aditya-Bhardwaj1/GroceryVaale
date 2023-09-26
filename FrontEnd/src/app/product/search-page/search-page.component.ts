@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
@@ -12,7 +13,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   private subscription?: Subscription;
   productList: Product[] = [];
   searchText?: string;
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private router: Router) { }
   ngOnDestroy(): void {
     console.log(this.productList);
 
@@ -23,6 +24,13 @@ export class SearchPageComponent implements OnInit, OnDestroy {
     this.search();
 
   }
+
+  productDetails(product: Product){
+  
+    this.router.navigate(["product-details",product.productId])
+    
+   }
+
   search(): void {
     console.log("search")
     this.searchText = this.productService.getSearchedText();

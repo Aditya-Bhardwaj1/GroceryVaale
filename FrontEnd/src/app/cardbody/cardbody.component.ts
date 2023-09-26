@@ -6,6 +6,7 @@ import { Product } from '../models/product.model';
 import { Category } from '../models/category.model';
 import { CategoryService } from '../services/category.service';
 import { ProductService } from '../services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cardbody',
@@ -17,7 +18,7 @@ export class CardbodyComponent implements OnInit, OnDestroy {
 
   categories: Category[] = [];
   sub$?: Subscription;
-  constructor(private categoryService: CategoryService, private productService: ProductService, private e1 :ElementRef){}
+  constructor(private categoryService: CategoryService, private productService: ProductService, private e1 :ElementRef, private router: Router){}
   ngOnInit(): void {
     this.sub$ = this.categoryService.getCategories().subscribe({
       next: (data) => {this.categories = data; console.log(data)},
@@ -27,6 +28,12 @@ export class CardbodyComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub$?.unsubscribe();
   }
+
+  productDetails(product: Product){
+    console.log("kjaedkfajbwldjbald")
+    console.log(product)
+    this.router.navigate(["product-details",product.productId])
+   }
     // get product by category Id
     products: Product[] = [];
     OnClicked(category :Category){

@@ -60,8 +60,7 @@ namespace Grocery.Soti.Project.DAL
                         Regex regex = new Regex("");
                         if (productName != null)
                         {
-                            regex = new Regex(productName.Trim());
-
+                            regex = new Regex(productName.Trim().ToLower());
                         }
                         if (productPrice == null)
                         {
@@ -81,7 +80,7 @@ namespace Grocery.Soti.Project.DAL
                             Discontinued = Convert.ToBoolean(x.Field<bool>("Discontinued")),
                             CategoryId = Convert.ToInt32(x.Field<int>("CategoryId")),
                             ProductImage = Convert.ToString(x.Field<string>("ProductImage"))
-                        }).Where(p => (regex.IsMatch(p.ProductName)) && p.UnitPrice > productPrice).ToList();
+                        }).Where(p => ((regex.IsMatch(p.ProductName) || regex.IsMatch(p.ProductName.ToLower())) && p.UnitPrice > productPrice)).ToList();
                     }
                 }
             }
@@ -102,11 +101,13 @@ namespace Grocery.Soti.Project.DAL
                         var product = _dataset.Tables["Products"].AsEnumerable()
                                      .Select(x => new Product
                                      {
+                                         ProductId =x.Field<int>("ProductId"),
                                          ProductName = x.Field<string>("ProductName"),
                                          Description = x.Field<string>("Description"),
                                          UnitPrice = x.Field<decimal>("UnitPrice"),
                                          UnitsInStock = x.Field<int>("UnitsInStock"),
                                          CategoryId = x.Field<int>("CategoryId"),
+                                         ProductImage = x.Field<string>("ProductImage")
                                      }).Where(x => x.CategoryId == categoryId).ToList();
 
                         return product;
