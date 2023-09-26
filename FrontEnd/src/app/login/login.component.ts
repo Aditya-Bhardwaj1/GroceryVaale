@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit,OnDestroy {
       ).subscribe({
         next: (data) => {
           console.log(data);
-          // sessionStorage.setItem("token", data.access_token);
+         // sessionStorage.setItem("token", data.access_token);
         },
         error: (err) => {
           console.error(err.status);

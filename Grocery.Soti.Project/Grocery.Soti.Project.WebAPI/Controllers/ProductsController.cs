@@ -60,7 +60,7 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        
         [Route("AllProducts")]
         public IHttpActionResult GetProducts()
         {

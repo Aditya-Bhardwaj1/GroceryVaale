@@ -14,7 +14,7 @@ namespace Grocery.Soti.Project.WebAPI
             // Web API configuration and services
 
             //var cors = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors();
+           // config.EnableCors();
             //config.MapHttpAttributeRoutes();
             // Web API routes
             config.MapHttpAttributeRoutes();
