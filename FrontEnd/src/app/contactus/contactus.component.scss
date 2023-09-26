@@ -1,121 +1,121 @@
-// Image in Contact Us Page
+// // Image in Contact Us Page
 
-.contact-img{
+// .contact-img{
 
-    background-image: url("../../assets/Images/aboutUs.jpg");
+//     //background-image: url("../../assets/Images/contact-us.jpg");
 
-    height: 500px;
+//     height: 500px;
 
-    background-position: center;
+//     background-position: center;
 
-    background-repeat: no-repeat;
+//     background-repeat: no-repeat;
 
-    background-size: cover;
+//     background-size: cover;
 
    
 
-}
+// }
 
  
 
-// Content in Contact Us Page
+// // Content in Contact Us Page
 
-.contact-content{
+// .contact-content{
 
-    background-image: linear-gradient(to right,rgba(252, 247, 217, 0.5), rgba(255, 245, 168, 0.541));
+//     background-image: linear-gradient(to right,rgba(252, 247, 217, 0.5), rgba(255, 245, 168, 0.541));
 
-    height: 500px;
+//     height: 500px;
 
-    font-family:Verdana, Geneva, Tahoma, sans-serif!important;
+//     font-family:Verdana, Geneva, Tahoma, sans-serif!important;
 
-}
-
- 
-
-// Media Query for different size of screen
-
-@media screen and (max-width: 960px) {
+// }
 
  
 
-    .about-content{
+// // Media Query for different size of screen
 
-      height: 550px;
-
-    }
+// @media screen and (max-width: 960px) {
 
  
 
-    .about-img{
+//     .about-content{
 
-        height: 550px;
+//       height: 550px;
 
-    }
-
-  }
+//     }
 
  
 
-  @media screen and (max-width: 960px) {
+//     .about-img{
+
+//         height: 550px;
+
+//     }
+
+//   }
 
  
 
-    .about-content{
-
-      height: 600px;
-
-    }
+//   @media screen and (max-width: 960px) {
 
  
 
-    .about-img{
+//     .about-content{
 
-        height: 600px;
+//       height: 600px;
 
-    }
-
-  }
+//     }
 
  
 
-@media screen and (max-width: 750px) {
+//     .about-img{
 
-      .about-img{
+//         height: 600px;
 
-          height: 400px;
+//     }
 
-      }
+//   }
+
+ 
+
+// @media screen and (max-width: 750px) {
+
+//       .about-img{
+
+//           height: 400px;
+
+//       }
 
      
 
-      .about-content{
+//       .about-content{
 
-        height: 500px;
+//         height: 500px;
 
-      }
+//       }
 
-  }
-
- 
+//   }
 
  
 
-  @media screen and (max-width: 500px) {
+ 
 
-      .about-img{
+//   @media screen and (max-width: 500px) {
 
-          height: 300px;
+//       .about-img{
 
-      }
+//           height: 300px;
+
+//       }
 
      
 
-      .about-content{
+//       .about-content{
 
-        height: 700px;
+//         height: 700px;
 
-      }
+//       }
 
-  }
+//   }
 
  
