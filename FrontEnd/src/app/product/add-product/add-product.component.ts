@@ -11,6 +11,7 @@ import { Product } from '../../models/product.model';
 import { Category } from '../../models/category.model';
 
 import { CategoryService } from '../../services/category.service';
+import { Router } from '@angular/router';
 
  
 
@@ -49,7 +50,7 @@ export class AddProductComponent {
 
  
 
-  constructor(private productService: ProductService, private categoryService: CategoryService, private fb: FormBuilder){}
+  constructor(private productService: ProductService, private categoryService: CategoryService, private fb: FormBuilder,private router:Router){}
 
  
 
@@ -73,26 +74,13 @@ export class AddProductComponent {
 
  
 
-    this.subCategory$ = this.categoryService.getCategories().subscribe((categories) => {
+    this.subCategory$ = this.categoryService.getCategories().subscribe({
 
-      console.log(categories);
-
-     
-
-      categories.forEach(category => {
-
-        this.categories?.push(category);
-
-      });
-
-     
-
+      next:(data) => {this.categories=data;
+        console.log(this.categories)},
+        error:(err)=>{ alert(err); console.log(err)}
+      
     });
-
-    console.log(this.categories);
-
-   
-
   }
 
  
@@ -101,13 +89,7 @@ export class AddProductComponent {
   }
 
   onSubmit() {
-
- 
-
     this.product = new Product();
-
- 
-
     this.product.productName = this.f['productName'].value;
 
     this.product.description = this.f['description'].value;
@@ -119,9 +101,6 @@ export class AddProductComponent {
     this.product.discontinued = false;
 
     this.product.categoryId = this.f['categoryId'].value;
-
-    
-
     this.imgString=(this.f['productImage'].value).toString()
      const splitArray = this.imgString.split('\\');
      this.imagePath+=splitArray[splitArray.length-1]
@@ -148,10 +127,9 @@ export class AddProductComponent {
       error: (err) => {
 
         console.error(err.status);
-
         this.isAdded = false;
-
         this.submitted = true;
+        alert(err);
 
       }
 
@@ -172,6 +150,8 @@ export class AddProductComponent {
     this.isAdded = false;
 
     this.addForm.reset();
+    this.router.navigate(["allproducts"])
+    
 
   }
 

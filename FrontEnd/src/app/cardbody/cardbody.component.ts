@@ -39,7 +39,7 @@ export class CardbodyComponent implements OnInit, OnDestroy {
      this.sub$ = this.productService.getProductsByCategoryId(category.categoryId!).subscribe(
       {
         next:(Data) => {this.products=Data  ;console.log(Data)},
-        error: (err)=>console.log(err)
+        error: (err)=>{console.log(err); alert(err)}
       }
      )
      const targetDiv = this.e1.nativeElement.querySelector('#listProducts');

@@ -11,6 +11,6 @@ namespace Grocery.Soti.Project.DAL.Interfaces
     {
         Task<User> ValidateUserAsync(string emailId, string Password);
 
-        string getUserRole(string userEmail);
+        User getUserRole(string userEmail);
     }
 }

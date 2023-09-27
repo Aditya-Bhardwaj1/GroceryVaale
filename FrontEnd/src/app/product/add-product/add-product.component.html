@@ -193,14 +193,13 @@
                 >
               </div>
             </div>
-   
-            <!-- Submit Button -->
-            <div class="mt-4 d-flex justify-content-center">
-              <button type="submit" class="btn btn-success">
-                <b>Add Product</b>
-              </button>
-            </div>
-   
+
+          <!-- Submit Button -->
+          <div class="mt-4 d-flex justify-content-center">
+            <button type="submit" class="btn btn-success" [disabled]="!addForm.valid">
+              <b>Add Product</b>
+            </button>
+          </div>
             <!-- Result Display  -->
             <div class="mt-4 d-flex justify-content-center">
               <div *ngIf="submitted && isAdded">

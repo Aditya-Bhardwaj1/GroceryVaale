@@ -33,25 +33,24 @@ export class EditProductComponent implements OnInit{
       //productName: new FormControl(this.product?.productName, Validators.required),
       description: [null, [Validators.required]],
       //discontinuedd: new FormControl(this.product?.discontinued,Validators.required),
-     discontinuedd:[null,Validators.required],
+     discontinued:[null,Validators.required],
       unitPrice: [null, [Validators.required]],
       unitsInStock:[null, Validators.required],
       categoryId: [null,[Validators.required]],
       productImage: [null,[Validators.required]],
-      // password: [null, [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
-      // confirmPassword: [null,[Validators.required, Validators.minLength(8)]],
+      
     }
     );
     const producId = this.route.snapshot.paramMap.get('productId');
     this.sub2$ = this.categoryService.getCategories().subscribe({
       next: (data)=>{this.categories=data; console.log(data)},
-      error: (err) => {console.error(err)}
+      error: (err) => {console.error(err);alert(err);}
     })
 
     if (producId !== null)
     this.sub$ = this.productService.getProductsById(+producId).subscribe({
-      next: (data) => {this.product = data; console.log(data);  this.productForm.patchValue(data); this.productForm.get("discontinuedd")?.patchValue(data.discontinued)},
-      error: (err) => {console.error(err)}
+      next: (data) => {this.product = data; console.log(data);  this.productForm.patchValue(data); this.productForm.get("discontinued")?.patchValue(data.discontinued)},
+      error: (err) => {console.error(err);alert(err);}
     })
     
 
@@ -59,13 +58,13 @@ export class EditProductComponent implements OnInit{
   }
   onSubmit(product1?: Product){
     
-    console.log(this.productForm)
+    console.log(this.productForm.value)
     console.log(product1?.productId)
     if(this.productForm?.valid){
       this.submitted = true;
      this.isSubmitted=true;
       this.sub$ = this.productService.updateProduct((product1?.productId!), this.productForm.value).subscribe({
-        next: (data) => {this.product = data; this.doReset();},
+        next: (data) => {this.product = data; this.doReset(); this.router.navigate(["product-details/"+product1?.productId]) },
         error: (err) => {console.error(err)}
       })
     }

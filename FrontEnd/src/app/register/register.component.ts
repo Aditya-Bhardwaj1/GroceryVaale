@@ -4,6 +4,7 @@ import { MatchingValidation } from '../shared/match-validator';
 import { AccountService } from '../services/account.service';
 import { Subscription } from 'rxjs';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
  
 @Component({
   selector: 'app-register',
@@ -16,13 +17,14 @@ export class RegisterComponent implements OnInit, OnDestroy {
   formatedDate : string = "";
   sub$?: Subscription;
   statusCode?: number;
+  isSuccessful:Boolean=true;
   duplicateStatus ? : boolean
   submitted: boolean = false;
   mobileNoRegex: string = '^[0-9]*$';
   emailRegex: string = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
   userType: string = '';
  
-  constructor(private service: AccountService, private fb: FormBuilder,private datePipe: DatePipe) { }
+  constructor(private service: AccountService, private fb: FormBuilder,private datePipe: DatePipe, private router: Router) { }
  
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -85,14 +87,18 @@ export class RegisterComponent implements OnInit, OnDestroy {
  
       ).subscribe({
         next: (data) => {
+          this.router.navigate(["/login"]);
           // console.log(data);
           // sessionStorage.setItem("token", data.access_token);
         },
         error: (err) => {
+          this.isSuccessful=false;
           console.error(err.status);
+          console.log(err)
+          alert(err);
           this.statusCode = err.status;
           console.log("Status Codr is ", this.statusCode);
-          this.duplicateStatus = true;
+          //this.duplicateStatus = true;
         }
       });
  

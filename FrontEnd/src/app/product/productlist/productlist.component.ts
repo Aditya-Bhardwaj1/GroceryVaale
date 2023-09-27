@@ -18,7 +18,7 @@ export class ProductlistComponent implements OnInit, OnDestroy {
    ngOnInit(): void {
     this.sub$ = this.productService.getProducts().subscribe({
       next: (data) => {this.products = data},
-      error: (err) => {console.error(err)}
+      error: (err) => {console.error(err);alert(err);}
     })
     if(sessionStorage.getItem("role")){
       this.roles=sessionStorage.getItem("role")?.toString();

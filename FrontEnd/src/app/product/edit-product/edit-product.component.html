@@ -64,18 +64,18 @@
                         </div>
                         <div class="mb-3">
                             <label class="col-form-label">Discontinued</label>
-                            <select class="form-select" formControlName="discontinuedd" [ngClass]="{
+                            <select class="form-select" formControlName="discontinued" [ngClass]="{
                 error:
-                  (submitted || getControl('discontinuedd').touched) &&
-                  getControl('discontinuedd').errors
+                  (submitted || getControl('discontinued').touched) &&
+                  getControl('discontinued').errors
               }">
                                 <option value="true">True</option>
                                 <option value="false">False</option>
 
                             </select>
-                            <div *ngIf="(submitted || getControl('discontinuedd').touched) && f['discontinuedd'].errors"
+                            <div *ngIf="(submitted || getControl('discontinued').touched) && f['discontinued'].errors"
                                 class="text-danger small">
-                                <span *ngIf="f['discontinuedd'].errors?.['required']">discontinued is required</span>
+                                <span *ngIf="f['discontinued'].errors?.['required']">discontinued is required</span>
                             </div>
                         </div>
 

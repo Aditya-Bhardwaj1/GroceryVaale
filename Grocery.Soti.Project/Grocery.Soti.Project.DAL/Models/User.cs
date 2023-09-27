@@ -13,6 +13,7 @@ namespace Grocery.Soti.Project.DAL.Models
         public string LastName { get; set; }
         public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public int UserId { get; set; }
 
 
         public string MobileNumber { get; set; }

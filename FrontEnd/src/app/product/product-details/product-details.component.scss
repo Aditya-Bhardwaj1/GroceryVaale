@@ -10,9 +10,15 @@ body {
   
 }
 .product-detail-container{
+    margin-top: -130px !important;
+
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.discontinued{
+  opacity: 0.3;
 }
 
 .container {

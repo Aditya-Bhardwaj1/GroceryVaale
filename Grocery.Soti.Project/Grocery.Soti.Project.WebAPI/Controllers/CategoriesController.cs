@@ -26,12 +26,19 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         [Route("GetAllCategories")]
         public IHttpActionResult GetAllCategories()
         {
-            var dt = _categories.GetAllCategories();
-            if (dt == null)
+            try
             {
-                return BadRequest();
+                var dt = _categories.GetAllCategories();
+                if (dt == null)
+                {
+                    return BadRequest();
+                }
+                return Ok(dt);
             }
-            return Ok(dt);
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
         }
 
         [HttpPost]
@@ -39,12 +46,19 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         [Route("AddCategory")]
         public IHttpActionResult InsertCategory([FromBody] Category category)
         {
-            var dt = _categories.InsertCategory(category.CategoryName, category.CategoryImage);
-            if (!dt)
+            try
             {
-                return BadRequest();
+                var dt = _categories.InsertCategory(category.CategoryName, category.CategoryImage);
+                if (!dt)
+                {
+                    return BadRequest();
+                }
+                return Ok(dt);
             }
-            return Ok(dt);
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

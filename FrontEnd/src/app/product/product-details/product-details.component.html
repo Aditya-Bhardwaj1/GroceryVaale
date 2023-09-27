@@ -1,4 +1,4 @@
-<div class="container-fluid product-detail-container">
+<div class="container-fluid product-detail-container" [ngClass]="{'discontinued':product.discontinued}">
     <div class="container ">
         <div class="box"  >
             <div class="product__img">
@@ -21,10 +21,13 @@
                 </div>
             </div>
 
-            <div class="product_buttons">
-                <button class="btn wishlist">Add To Cart </button>
+            <div class="product_buttons  ">
+                <button class="btn wishlist" (click)="addToCart()" *ngIf="!product.discontinued">Add To Cart </button>
+                
                 <button class="btn buy" *ngIf="roles=='admin'" (click)="navigateToEditDetails(product.productId)">Edit Details</button>
+
             </div>
         </div>
+
     </div>
 </div>

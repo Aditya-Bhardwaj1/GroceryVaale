@@ -16,7 +16,7 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
     {
         private readonly IUser _user = null;
         private readonly IAccount _account = null;
-        public UserController(IUser user,IAccount account)
+        public UserController(IUser user, IAccount account)
         {
             _user = user;
             _account = account;
@@ -39,12 +39,19 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         [Route("getUser")]
         public IHttpActionResult getUserRole([FromUri] string userEmail)
         {
-            string role=_account.getUserRole(userEmail);
-            if(role!=null)
+            try
             {
-                return Ok(role);
+                User role = _account.getUserRole(userEmail);
+                if (role != null)
+                {
+                    return Ok(role);
+                }
+                return BadRequest();
             }
-            return BadRequest();
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
         }
 
         [HttpPost]
@@ -52,16 +59,23 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         [AllowAnonymous]
         public async Task<IHttpActionResult> RegisterUser([FromBody] User user)
         {
-            string password = user.Password + "2CxVKFLCejA3B4LJu7ocpg==";
-            string hashedPassword = Crypto.HashPassword(password);
-            user.Password = hashedPassword;
-            var registerResponse = await _user.RegisterUser(user);
-            if (registerResponse == false)
+            try
             {
-                return BadRequest();
+                string password = user.Password + "2CxVKFLCejA3B4LJu7ocpg==";
+                string hashedPassword = Crypto.HashPassword(password);
+                user.Password = hashedPassword;
+                var registerResponse = await _user.RegisterUser(user);
+                if (registerResponse == false)
+                {
+                    return BadRequest();
+                }
+                //return Ok(dt);
+                return StatusCode(HttpStatusCode.Created);
             }
-            //return Ok(dt);
-            return StatusCode(HttpStatusCode.Created);
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         //[HttpPost]

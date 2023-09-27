@@ -14,36 +14,14 @@ namespace Grocery.Soti.Project.DAL
 {
     public class UserDetails : IAccount
     {
-        public string getUserRole(string userEmail)
+        /// <summary>
+        /// Get user role based on user email id
+        /// </summary>
+        /// <param name="userEmail"></param>
+        /// <returns>return user</returns>
+        public User getUserRole(string userEmail)
         {
-            using (SqlConnection connection = new SqlConnection(SqlConnectionString.GetConnectionString))
-            {
-                using (SqlDataAdapter adapter = new SqlDataAdapter("Select * from Users", connection))
-                {
-                    using (DataSet ds = new DataSet())
-                    {
-                        adapter.Fill(ds, "Users");
-
-                        User user1= ds.Tables[0].AsEnumerable()
-                            .Select(u => new User
-                            {
-                                FirstName = u.Field<string>("FirstName"),
-                                LastName = u.Field<string>("LastName"),
-                                EmailId = u.Field<string>("EmailId"),
-                                Password = u.Field<string>("Password"),
-                                MobileNumber = u.Field<string>("MobileNumber"),
-                                Roles = u.Field<string>("Roles")
-                            })
-                            .FirstOrDefault(x => x.EmailId == userEmail);
-                        return user1.Roles;
-                    }
-                }
-            }
-        }
-
-        public Task<User> ValidateUserAsync(string emailId, string password)
-        {
-            return Task.Run(() =>
+            try
             {
                 using (SqlConnection connection = new SqlConnection(SqlConnectionString.GetConnectionString))
                 {
@@ -53,21 +31,78 @@ namespace Grocery.Soti.Project.DAL
                         {
                             adapter.Fill(ds, "Users");
 
-                            return ds.Tables[0].AsEnumerable()
+                            User user1 = ds.Tables[0].AsEnumerable()
                                 .Select(u => new User
                                 {
                                     FirstName = u.Field<string>("FirstName"),
+                                    UserId = u.Field<int>("UserId"),
                                     LastName = u.Field<string>("LastName"),
                                     EmailId = u.Field<string>("EmailId"),
                                     Password = u.Field<string>("Password"),
                                     MobileNumber = u.Field<string>("MobileNumber"),
                                     Roles = u.Field<string>("Roles")
                                 })
-                                .FirstOrDefault(x => x.EmailId == emailId);
+                                .FirstOrDefault(x => x.EmailId == userEmail);
+                            return user1;
                         }
                     }
                 }
-            });
+            }
+            catch (DBConcurrencyException e)
+            {
+                throw e;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        /// <summary>
+        /// Validate user by bearer token
+        /// </summary>
+        /// <param name="emailId"></param>
+        /// <param name="password"></param>
+        /// <returns>return users when we register</returns>
+
+        public Task<User> ValidateUserAsync(string emailId, string password)
+        {
+            try
+            {
+                return Task.Run(() =>
+                {
+                    using (SqlConnection connection = new SqlConnection(SqlConnectionString.GetConnectionString))
+                    {
+                        using (SqlDataAdapter adapter = new SqlDataAdapter("Select * from Users", connection))
+                        {
+                            using (DataSet ds = new DataSet())
+                            {
+                                adapter.Fill(ds, "Users");
+
+                                return ds.Tables[0].AsEnumerable()
+                                    .Select(u => new User
+                                    {
+                                        FirstName = u.Field<string>("FirstName"),
+                                        LastName = u.Field<string>("LastName"),
+                                        EmailId = u.Field<string>("EmailId"),
+                                        Password = u.Field<string>("Password"),
+                                        MobileNumber = u.Field<string>("MobileNumber"),
+                                        Roles = u.Field<string>("Roles")
+                                    })
+                                    .FirstOrDefault(x => x.EmailId == emailId);
+                            }
+                        }
+                    }
+                });
+            }
+            catch (DBConcurrencyException e)
+            {
+                throw e;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

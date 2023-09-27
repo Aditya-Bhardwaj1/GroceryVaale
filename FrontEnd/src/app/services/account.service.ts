@@ -23,13 +23,13 @@ export class AccountService {
 
   Register(FirstName : string , LastName : string , Gender : string , DateOfBirth : Date , MobileNumber : string ,EmailId: string,Password : string): Observable<any> {
     this.user = new User();
-    this.user.FirstName = FirstName;
-    this.user.LastName = LastName;
-    this.user.Gender = Gender;
-    this.user.DateOfBirth = (DateOfBirth);
-    this.user.MobileNumber = MobileNumber;
-    this.user.EmailId = EmailId;
-    this.user.Password = Password;
+    this.user.firstName = FirstName;
+    this.user.lastName = LastName;
+    this.user.gender = Gender;
+    this.user.dateOfBirth = (DateOfBirth);
+    this.user.mobileNumber = MobileNumber;
+    this.user.emailId = EmailId;
+    this.user.password = Password;
     console.log("User is ", this.user);
     return this.http.post(`${this.baseUrl}/api/soti/user/Register`, this.user);
   }
@@ -53,14 +53,23 @@ export class AccountService {
       'Content-Type': 'application/x-www-form-urlencoded'
     });
     
-    ; 
+    
     this.http.post(`${this.baseUrl}/login`, body.toString(), { headers }).subscribe({
       next:(data)=>{
+        console.log("here")
         this.http.get(this.baseUrl+"/api/soti/user/getUser", {params:{"userEmail":EmailId}} )
       .subscribe({
-      next:(data)=>{this.role=data.toString();
-        console.log(data.toString(),"kajgdka")
-      sessionStorage.setItem("role",data.toString())},
+      next:(data)=>{
+        console.log("there")
+        this.user= data;
+        console.log(data);
+        console.log(data.toString())
+      sessionStorage.setItem("role",this.user.roles!)
+      sessionStorage.setItem("id", this.user.userId?.toString()!)
+      sessionStorage.setItem("test",this.user.emailId?.toString()!)
+      window.location.reload();
+
+    },
       error:(err)=>{
         console.log("kajgdka")
 

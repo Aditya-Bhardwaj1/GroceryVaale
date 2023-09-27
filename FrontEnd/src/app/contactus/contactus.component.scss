@@ -1,5 +1,21 @@
 // // Image in Contact Us Page
 
+.contactus-container{
+    display: flex;
+    align-items:center;
+    justify-content: space-evenly;
+   
+}
+
+.contactus-container-content{
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+
 // .contact-img{
 
 //     //background-image: url("../../assets/Images/contact-us.jpg");

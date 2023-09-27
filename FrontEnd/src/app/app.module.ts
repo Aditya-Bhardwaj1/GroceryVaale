@@ -21,6 +21,7 @@ import { DatePipe } from '@angular/common';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { EditProductComponent } from './product/edit-product/edit-product.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
+import { CartComponent } from './cart/cart.component';
 
 const appRoutes: Routes = [
   //{ path: '', component: NavbarComponent} // localhost:8000
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     ProductDetailsComponent,
     EditProductComponent,
-    AddProductComponent
+    AddProductComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

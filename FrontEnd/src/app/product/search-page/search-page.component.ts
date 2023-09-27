@@ -25,30 +25,19 @@ export class SearchPageComponent implements OnInit, OnDestroy {
 
   }
   productDetails(product: Product){
-    console.log("kjaedkfajbwldjbald")
-    console.log(product)
     this.router.navigate(["product-details",product.productId])
    }
   search(): void {
-    console.log("search")
     this.searchText = this.productService.getSearchedText();
     this.subscription = this.productService.getSearchedProducts().subscribe({
       next: (data) => {
-
         this.productList = data;
-
-        console.log()
-
       },
-
       error: (err) => {
-
         console.error(err);
-
+        alert(err);
       },
-
     });
-
   }
 
 }
