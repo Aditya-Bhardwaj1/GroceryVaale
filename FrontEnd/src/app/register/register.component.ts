@@ -95,7 +95,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
           this.isSuccessful=false;
           console.error(err.status);
           console.log(err)
-          alert(err);
+          //alert(err.toString());
           this.statusCode = err.status;
           console.log("Status Codr is ", this.statusCode);
           //this.duplicateStatus = true;
