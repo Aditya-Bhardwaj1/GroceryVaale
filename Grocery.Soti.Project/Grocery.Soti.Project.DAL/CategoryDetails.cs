@@ -16,50 +16,81 @@ namespace Grocery.Soti.Project.DAL
         private SqlDataAdapter _adapter = null;
         private DataTable _dt = null;
 
-
+        /// <summary>
+        /// List all categories on home page
+        /// </summary>
+        /// <returns>returns all categories </returns>
         public List<Category> GetAllCategories()
         {
-            using (_connection = new SqlConnection(SqlConnectionString.GetConnectionString))
+            try
             {
-                using (_adapter = new SqlDataAdapter("Select * from Categories", _connection))
+                using (_connection = new SqlConnection(SqlConnectionString.GetConnectionString))
                 {
-                    using (DataSet _ds = new DataSet())
+                    using (_adapter = new SqlDataAdapter("Select * from Categories", _connection))
                     {
-                        _adapter.Fill(_ds, "Categories");
-                        var categories = _ds.Tables["Categories"].AsEnumerable().Select(x => new Category
+                        using (DataSet _ds = new DataSet())
                         {
-                            CategoryId = x.Field<int>("CategoryId"),
-                            CategoryName = x.Field<string>("CategoryName"),
-                            CategoryImage = x.Field<string>("CategoryImage"),
+                            _adapter.Fill(_ds, "Categories");
+                            var categories = _ds.Tables["Categories"].AsEnumerable().Select(x => new Category
+                            {
+                                CategoryId = x.Field<int>("CategoryId"),
+                                CategoryName = x.Field<string>("CategoryName"),
+                                CategoryImage = x.Field<string>("CategoryImage"),
 
-                        }).ToList();
+                            }).ToList();
 
-                        return categories;
+                            return categories;
+                        }
                     }
                 }
             }
+            catch (DBConcurrencyException e)
+            {
+                throw e;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
+        /// <summary>
+        /// Inset catagiroes with all details
+        /// </summary>
+        /// <param name="categoryName"></param>
+        /// <param name="categoryImgUrl"></param>
+        /// <returns>Return added categories into database</returns>
         public bool InsertCategory(string categoryName, string categoryImgUrl)
         {
-            using (_connection = new SqlConnection(SqlConnectionString.GetConnectionString))
+            try
             {
-                using (_adapter = new SqlDataAdapter("usp_AddCategory", _connection))
+                using (_connection = new SqlConnection(SqlConnectionString.GetConnectionString))
                 {
-                    _adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    _adapter.SelectCommand.Parameters.AddWithValue("@CategoryName", categoryName);
-                    _adapter.SelectCommand.Parameters.AddWithValue("@CategoryImgUrl", categoryImgUrl);
-
-                    SqlParameter param = new SqlParameter("@return", SqlDbType.Int);
-                    param.Direction = ParameterDirection.ReturnValue;
-                    _adapter.SelectCommand.Parameters.Add(param);
-                    using (_dt = new DataTable())
+                    using (_adapter = new SqlDataAdapter("usp_AddCategory", _connection))
                     {
-                        _adapter.Fill(_dt);
-                        return Convert.ToInt32(param.Value) > 0;
-                    }
+                        _adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                        _adapter.SelectCommand.Parameters.AddWithValue("@CategoryName", categoryName);
+                        _adapter.SelectCommand.Parameters.AddWithValue("@CategoryImgUrl", categoryImgUrl);
 
+                        SqlParameter param = new SqlParameter("@return", SqlDbType.Int);
+                        param.Direction = ParameterDirection.ReturnValue;
+                        _adapter.SelectCommand.Parameters.Add(param);
+                        using (_dt = new DataTable())
+                        {
+                            _adapter.Fill(_dt);
+                            return Convert.ToInt32(param.Value) > 0;
+                        }
+
+                    }
                 }
+            }
+            catch (DBConcurrencyException e)
+            {
+                throw e;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

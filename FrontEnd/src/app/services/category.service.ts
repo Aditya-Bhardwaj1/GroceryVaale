@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Category } from '../models/category.model';
 
@@ -7,9 +7,20 @@ import { Category } from '../models/category.model';
   providedIn: 'root'
 })
 export class CategoryService {
+  private authHeader!: HttpHeaders;
 
   baseUrl : string ="http://localhost:34567/api/soti/categories"
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    let authorizeData = 'Bearer ' + sessionStorage.getItem("token");
+    
+
+    console.log(authorizeData);
+
+    this.authHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': authorizeData
+    })
+  }
   getCategories():Observable<Category[]>{
 
     return this.http.get<Category[]>(`${this.baseUrl}/GetAllCategories`)
@@ -22,7 +33,7 @@ export class CategoryService {
       category.categoryImage=_categoryImage;
      
      category.categoryName
-    return this.http.post<Boolean>(this.baseUrl+"/AddCategory",category);
+    return this.http.post<Boolean>(this.baseUrl+"/AddCategory",category, { headers: this.authHeader });
   }
 }
 

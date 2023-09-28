@@ -20,6 +20,11 @@
         <a class="nav-link active mx-3 nav-change" href="/contact-us">Contact Us</a>
       </li>
     </ul>
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0" *ngIf="isLogin">
+      <li class="nav-item">
+        <a class="nav-link active mx-3 nav-change" href="/cart"><i class="bi bi-cart"></i>Cart</a>
+      </li>
+    </ul>
   </div>
 </nav>
 
@@ -49,8 +54,9 @@
         <li class="nav-item">
           <a class="nav-link nav-change active" href="#" routerLink="/about-us" >About us</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link nav-change active" href="#" routerLink="/login">Login</a>
+        <li class="nav-item" >
+          <a class="nav-link nav-change active" *ngIf="!isLogin" href="#" routerLink="/login" >Login</a>
+          <a class="nav-link nav-change active" *ngIf="isLogin" href="#" routerLink="/home" (click)="logout()">Logout</a>
         </li>
       </ul>
     </div>

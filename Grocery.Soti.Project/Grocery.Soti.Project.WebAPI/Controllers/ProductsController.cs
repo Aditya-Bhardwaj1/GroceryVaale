@@ -2,9 +2,11 @@
 using Grocery.Soti.Project.DAL.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -23,87 +25,119 @@ namespace Grocery.Soti.Project.WebAPI.Controllers
         [Route("getProductById/{productId}")]
         public IHttpActionResult getProductById([FromUri] int productId)
         {
-            var product = _product.GetProductById(productId);
-            if (product != null)
+            try
             {
-                return Ok(product);
+                var product = _product.GetProductById(productId);
+                if (product != null)
+                {
+                    return Ok(product);
+                }
+                return NotFound();
             }
-            return NotFound();
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
         }
 
         [HttpGet]
         [Route("getSearchedProducts")]
         public IHttpActionResult getSearchedProducts([FromUri] string productName, [FromUri] decimal? productPrice)
         {
-            var product = _product.searchProduct(productName, productPrice);
-            if (product != null)
+            try
             {
-                return Ok(product);
+                var product = _product.searchProduct(productName, productPrice);
+                if (product != null)
+                {
+                    return Ok(product);
+                }
+                return NotFound();
             }
-            return NotFound();
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
         }
 
         [HttpGet]
+
 
         [Route("getProductByCategoryId/{CategoryId}")]
         public IHttpActionResult ListProducts([FromUri] int CategoryId)
         {
-            var searchProduct = _product.ListProducts(CategoryId);
+            try
+            {
+                var searchProduct = _product.ListProducts(CategoryId);
 
-            if (searchProduct == null)
+                if (searchProduct == null)
+                {
+                    return NotFound();
+                }
+                return Ok(searchProduct);
+            }
+            catch (Exception ex)
             {
                 return NotFound();
             }
-            return Ok(searchProduct);
         }
 
         [HttpGet]
+
         [Route("AllProducts")]
         public IHttpActionResult GetProducts()
         {
-            var dt = _product.GetAllProducts();
-            if (dt == null)
+            try
             {
-                return BadRequest();
+                var dt = _product.GetAllProducts();
+                if (dt == null)
+                {
+                    return BadRequest();
+                }
+                return Ok(dt);
             }
-            return Ok(dt);
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
         }
 
         [HttpPut]
+        [Authorize(Roles = "admin")]
         [Route("updateProduct/{productId}")]
         public IHttpActionResult UpdateProduct([FromUri] int productId, [FromBody] Product product)
         {
-            var dt = _product.EditProduct(productId, product.ProductName, product.Description, product.UnitPrice, product.UnitsInStock, product.Discontinued, product.CategoryId, product.ProductImage);
-            if (!dt)
+            try
             {
-                return BadRequest();
+                var dt = _product.EditProduct(productId, product.ProductName, product.Description, product.UnitPrice, product.UnitsInStock, product.Discontinued, product.CategoryId, product.ProductImage);
+                if (!dt)
+                {
+                    return BadRequest();
+                }
+                return Ok(dt);
             }
-            return Ok(dt);
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
-
-        // add new product
 
         [HttpPost]
-
         [Route("addProduct")]
-
         public IHttpActionResult addProduct([FromBody] Product p)
-
         {
-
-            var product = _product.AddProduct(p);
-
-            if (product)
-
+            try
             {
-
-                return Ok(product);
-
+                var product = _product.AddProduct(p);
+                if (product)
+                {
+                    return Ok(product);
+                }
+                return BadRequest();
             }
-
-            return BadRequest();
-
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
-
     }
 }

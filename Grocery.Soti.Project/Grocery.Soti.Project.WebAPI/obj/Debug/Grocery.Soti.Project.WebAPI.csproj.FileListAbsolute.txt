@@ -179,6 +179,7 @@ C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Sot
 C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\Microsoft.Managed.Core.targets
 C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+<<<<<<< HEAD
 C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\Microsoft.Win32.Primitives.dll
 C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\System.AppContext.dll
 C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\System.Collections.Immutable.dll
@@ -206,6 +207,12 @@ C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Sot
 C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\System.Xml.XmlDocument.dll
 C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\System.Xml.XPath.dll
 C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+=======
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\System.Threading.Tasks.Extensions.dll
+>>>>>>> 1f6a6edd3581bc013feba47f586f2b4e2bf8836e
 C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\vbc.exe
 C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\vbc.exe.config
 C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\vbc.rsp
@@ -235,3 +242,24 @@ C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Sot
 C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\System.Web.Http.WebHost.xml
 C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\obj\Debug\Grocery.Soti.Project.WebAPI.csproj.CopyComplete
+<<<<<<< HEAD
+=======
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\Microsoft.Managed.Core.CurrentVersions.targets
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\System.Buffers.dll
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\System.Memory.dll
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\Microsoft.Owin.Cors.dll
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\Microsoft.Owin.dll
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\Microsoft.Owin.Security.dll
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\Owin.dll
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\System.Web.Helpers.Crypto.dll
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\Microsoft.Owin.xml
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\Microsoft.Owin.Cors.xml
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\Microsoft.Owin.Security.xml
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\adbhardwaj\OneDrive - SOTI Inc\Desktop\Grocery\GroceryVaale\Grocery.Soti.Project\Grocery.Soti.Project.WebAPI\bin\System.Web.Helpers.Crypto.pdb
+>>>>>>> 1f6a6edd3581bc013feba47f586f2b4e2bf8836e
